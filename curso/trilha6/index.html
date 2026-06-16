@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trilha 6 — Agentes &amp; Cowork | Claude Code Básico | INEMA.CLUB</title>
+  <meta name="inema-course" content="ccodebasico"/>
+  <script>
+    try {
+      var p = JSON.parse(localStorage.getItem('inema.prefs') || '{}');
+      if (p.dark === false) document.documentElement.classList.remove('dark');
+      else document.documentElement.classList.add('dark');
+    } catch(e) { document.documentElement.classList.add('dark'); }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'dark-900': '#0f172a', 'dark-800': '#1e293b', 'dark-700': '#334155', 'dark-600': '#475569', primary: '#FACC15' } } } }
+  </script>
+  <style>
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) nav { background-color: rgba(255,255,255,0.95) !important; border-bottom-color: #e5e7eb !important; }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(225,29,72,0.12); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(225,29,72,0.25); }
+    html:not(.dark) .text-red-400 { color: #b91c1c; }
+    html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+    .topic-explanation { display: none; }
+    .topic-explanation.open { display: block; }
+    [id] { scroll-margin-top: 72px; }
+    @keyframes wf-pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.4s} .wf-a:nth-child(3){animation-delay:.8s} .wf-a:nth-child(4){animation-delay:1.2s}
+    }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3 min-w-0">
+      <a href="../../" class="text-primary font-black text-xl tracking-tight">Claude Code Básico</a>
+      <span class="text-dark-600 hidden sm:inline">|</span>
+      <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium hidden sm:inline">INEMA.CLUB</a>
+    </div>
+    <div class="flex items-center gap-1.5 flex-wrap">
+      <a href="../trilha1/" class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-emerald-400 transition">T1 Básico</a>
+      <a href="../trilha2/" class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-blue-400 transition">T2 Do Zero</a>
+      <a href="../trilha3/" class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-purple-400 transition hidden sm:inline">T3 Contexto</a>
+      <a href="../trilha4/" class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-amber-400 transition hidden md:inline">T4 Skills</a>
+      <a href="../trilha5/" class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-teal-400 transition hidden md:inline">T5 MCP</a>
+      <a href="../trilha6/" class="text-xs px-2.5 py-1.5 rounded-lg bg-rose-500/20 text-rose-400 border border-rose-500/30 font-medium">T6 Agentes</a>
+      <button onclick="toggleTheme()" aria-label="Alternar tema" class="w-8 h-8 rounded-lg bg-dark-700 hover:bg-dark-600 flex items-center justify-center transition text-neutral-400">
+        <svg id="icon-sun" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+        <svg id="icon-moon" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- TRAIL HEADER -->
+<header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 items-center">
+    <div>
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4 border border-rose-500/30">TRILHA 6</span>
+      <h1 class="text-3xl sm:text-4xl font-black mb-3">🔴 Agentes &amp; Cowork</h1>
+      <p class="text-neutral-300 text-lg mb-6 max-w-2xl">Pare de trabalhar sozinho com um agente. Coloque <strong>vários</strong> a trabalhar: subagentes em paralelo, times com papéis, o Claude Cowork e um segundo cérebro que pensa com você.</p>
+      <div class="flex flex-wrap gap-4 text-sm">
+        <span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-rose-400"></span>6 módulos</span>
+        <span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-rose-400"></span>~55 minutos</span>
+        <span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-rose-400"></span>Multiagentes &amp; automação</span>
+      </div>
+    </div>
+    <!-- HERO SVG: orquestrador → subagentes em paralelo → consolidação -->
+    <div class="rounded-2xl border border-rose-500/30 bg-dark-900/40 p-4 overflow-hidden">
+      <svg role="img" aria-label="Um orquestrador distribui trabalho a vários subagentes em paralelo, que consolidam o resultado" class="w-full h-auto" viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <defs>
+          <linearGradient id="t6-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fb7185"/><stop offset="1" stop-color="#f43f5e"/></linearGradient>
+          <filter id="t6-glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <pattern id="t6-grid" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.2" fill="#38bdf8" opacity="0.08"/></pattern>
+        </defs>
+        <rect width="640" height="220" fill="url(#t6-grid)"/>
+        <!-- orquestrador -->
+        <rect x="20" y="86" width="130" height="48" rx="12" fill="url(#t6-grad)" filter="url(#t6-glow)"/>
+        <text x="85" y="106" text-anchor="middle" font-size="11" font-weight="700" fill="#4c0519">🎯 Orquestrador</text>
+        <text x="85" y="122" text-anchor="middle" font-size="8" fill="#881337">/agents · divide e delega</text>
+        <!-- ramos -->
+        <path d="M150,100 C220,100 230,40 300,40" fill="none" stroke="#fb7185" stroke-width="1.8" opacity="0.7" class="wf-a"/>
+        <path d="M150,108 C220,108 230,90 300,90" fill="none" stroke="#fb7185" stroke-width="1.8" opacity="0.7" class="wf-a"/>
+        <path d="M150,116 C220,116 230,140 300,140" fill="none" stroke="#fb7185" stroke-width="1.8" opacity="0.7" class="wf-a"/>
+        <path d="M150,124 C220,124 230,186 300,186" fill="none" stroke="#fb7185" stroke-width="1.8" opacity="0.7" class="wf-a"/>
+        <!-- subagentes -->
+        <rect x="300" y="24" width="120" height="32" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.6"/><text x="360" y="44" text-anchor="middle" font-size="8.5" fill="#38bdf8">Backend dev</text>
+        <rect x="300" y="74" width="120" height="32" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.6"/><text x="360" y="94" text-anchor="middle" font-size="8.5" fill="#38bdf8">Frontend dev</text>
+        <rect x="300" y="124" width="120" height="32" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.6"/><text x="360" y="144" text-anchor="middle" font-size="8.5" fill="#38bdf8">QA agent</text>
+        <rect x="300" y="170" width="120" height="32" rx="8" fill="#1e293b" stroke="#fb7185" stroke-width="1.6"/><text x="360" y="190" text-anchor="middle" font-size="8.5" fill="#fb7185">Pesquisa</text>
+        <!-- consolidação -->
+        <path d="M420,40 C480,40 490,100 520,100" fill="none" stroke="#38bdf8" stroke-width="1.6" opacity="0.6" class="wf-a"/>
+        <path d="M420,90 L520,100" fill="none" stroke="#38bdf8" stroke-width="1.6" opacity="0.6" class="wf-a"/>
+        <path d="M420,140 C480,140 490,108 520,108" fill="none" stroke="#38bdf8" stroke-width="1.6" opacity="0.6" class="wf-a"/>
+        <path d="M420,186 C480,186 490,116 520,116" fill="none" stroke="#38bdf8" stroke-width="1.6" opacity="0.6" class="wf-a"/>
+        <rect x="520" y="84" width="104" height="48" rx="12" fill="#1e293b" stroke="#fb7185" stroke-width="1.8"/>
+        <text x="572" y="104" text-anchor="middle" font-size="10" font-weight="700" fill="#fb7185">✓ App pronto</text>
+        <text x="572" y="120" text-anchor="middle" font-size="8" fill="#64748b">+ relatório QA</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+  <!-- MAPA DA TRILHA (OBRIGATÓRIO) -->
+  <section id="mapa-da-trilha" class="mb-12">
+    <h2 class="text-2xl font-bold mb-6">Mapa da trilha</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+      <a href="#modulo-6-1" class="bg-dark-800 rounded-xl border border-dark-600 hover:border-rose-500/40 p-4 transition block">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 text-sm font-bold">6.1</span><span class="text-xs text-neutral-500">~8 min</span></div>
+        <div class="font-semibold text-sm mb-1">⚡ Subagentes em Paralelo</div>
+        <p class="text-xs text-neutral-400">/agents · dividir e consolidar</p>
+      </a>
+      <a href="#modulo-6-2" class="bg-dark-800 rounded-xl border border-dark-600 hover:border-rose-500/40 p-4 transition block">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 text-sm font-bold">6.2</span><span class="text-xs text-neutral-500">~9 min</span></div>
+        <div class="font-semibold text-sm mb-1">👥 Times de Agentes</div>
+        <p class="text-xs text-neutral-400">papéis que conversam entre si</p>
+      </a>
+      <a href="#modulo-6-3" class="bg-dark-800 rounded-xl border border-dark-600 hover:border-rose-500/40 p-4 transition block">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 text-sm font-bold">6.3</span><span class="text-xs text-neutral-500">~9 min</span></div>
+        <div class="font-semibold text-sm mb-1">🤝 Claude Cowork</div>
+        <p class="text-xs text-neutral-400">executar tarefas e automações</p>
+      </a>
+      <a href="#modulo-6-4" class="bg-dark-800 rounded-xl border border-dark-600 hover:border-rose-500/40 p-4 transition block">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 text-sm font-bold">6.4</span><span class="text-xs text-neutral-500">~8 min</span></div>
+        <div class="font-semibold text-sm mb-1">🧠 Segundo Cérebro (RAG)</div>
+        <p class="text-xs text-neutral-400">Obsidian + Claude Code</p>
+      </a>
+      <a href="#modulo-6-5" class="bg-dark-800 rounded-xl border border-dark-600 hover:border-rose-500/40 p-4 transition block">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 text-sm font-bold">6.5</span><span class="text-xs text-neutral-500">~8 min</span></div>
+        <div class="font-semibold text-sm mb-1">🧰 Assistentes Aplicados</div>
+        <p class="text-xs text-neutral-400">PA, jurídico, contábil, pessoal</p>
+      </a>
+      <a href="#modulo-6-6" class="bg-dark-800 rounded-xl border border-dark-600 hover:border-rose-500/40 p-4 transition block">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 text-sm font-bold">6.6</span><span class="text-xs text-neutral-500">~7 min</span></div>
+        <div class="font-semibold text-sm mb-1">🔁 Automação e Pesquisa</div>
+        <p class="text-xs text-neutral-400">loops · Trigger.dev · agentic</p>
+      </a>
+    </div>
+  </section>
+
+  <h2 class="text-2xl font-bold mb-6">Conteúdo detalhado</h2>
+
+  <!-- Módulo 6.1 -->
+  <div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-6-1">
+    <button onclick="toggleTopic(this)" aria-expanded="false" aria-controls="exp-6-1" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left">
+      <span class="text-rose-400 text-xs font-bold w-6 flex-shrink-0">6.1</span>
+      <span class="w-8 h-8 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+      <div class="flex-1 min-w-0">
+        <h2 class="text-xl font-bold">Subagentes em Paralelo</h2>
+        <p class="text-sm text-neutral-400 mt-0.5">/agents · dividir tarefas · trabalho independente · consolidar</p>
+      </div>
+      <span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
+      <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
+    <div id="exp-6-1" class="topic-explanation px-5 pb-6">
+      <div class="border-t border-dark-600 pt-5 space-y-5">
+        <div><h3 class="text-base font-semibold text-rose-400 mb-2">🔴 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">Um <strong>subagente</strong> é uma instância do Claude com sua própria janela de contexto, disparada pelo agente principal para uma tarefa específica. Vários rodam <strong>em paralelo</strong>, cada um devolve só a conclusão — sem inundar o contexto principal. Você cria e configura subagentes com <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/agents</code>.</p></div>
+        <div><h3 class="text-base font-semibold text-rose-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Auditoria, pesquisa ampla e refactor dividido em paralelo cortam o tempo total. E como cada subagente tem contexto próprio, eles vasculham muitos arquivos sem gastar o seu — você fica com a conclusão, não com o despejo de tudo que leram.</p></div>
+        <div><h3 class="text-base font-semibold text-rose-400 mb-3">🔑 Fórmula do prompt</h3>
+          <div class="rounded-xl bg-rose-500/5 border border-rose-500/20 p-4">
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 overflow-x-auto font-mono">Use subagentes em paralelo para [objetivo].
+Divida:
+1. Subagente A: [papel específico]
+2. Subagente B: [papel específico]
+3. Subagente C: [papel específico]
+Regras: trabalho independente, não editem ainda,
+        consolidem os achados no final.</pre>
+          </div>
+          <p class="text-xs text-neutral-400 mt-2">O Claude <em>não</em> cria subagentes sozinho na maioria das tarefas — você pede. Padrões como o <strong>DeepClaudex</strong> empacotam essa orquestração (fan-out → verificação → síntese) num fluxo repetível.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Módulo 6.2 -->
+  <div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-6-2">
+    <button onclick="toggleTopic(this)" aria-expanded="false" aria-controls="exp-6-2" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left">
+      <span class="text-rose-400 text-xs font-bold w-6 flex-shrink-0">6.2</span>
+      <span class="w-8 h-8 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+      <div class="flex-1 min-w-0">
+        <h2 class="text-xl font-bold">Times de Agentes</h2>
+        <p class="text-sm text-neutral-400 mt-0.5">papéis que conversam · orquestrador · backend / frontend / QA</p>
+      </div>
+      <span class="text-xs text-neutral-500 hidden sm:block">~9 min</span>
+      <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
+    <div id="exp-6-2" class="topic-explanation px-5 pb-6">
+      <div class="border-t border-dark-600 pt-5 space-y-5">
+        <div><h3 class="text-base font-semibold text-rose-400 mb-2">🔴 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">Um passo além dos subagentes: uma <strong>equipe</strong> de agentes com papéis fixos que <em>se comunicam</em>. O backend avisa o frontend quando termina; o frontend manda pro QA; o QA devolve bugs pra correção. Há também o <strong>orquestrador analítico (AOA)</strong> — um agente que coordena os demais.</p></div>
+        <div><h3 class="text-base font-semibold text-rose-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Para projetos com etapas dependentes (API → UI → testes), o time entrega um fluxo realista de software, com handoff e revisão — não só pedaços soltos. É o pulo do "agente que ajuda" pro "equipe que produz".</p></div>
+        <div><h3 class="text-base font-semibold text-rose-400 mb-3">🔑 Prompt de um time full-stack</h3>
+          <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 overflow-x-auto font-mono">Crie um time de 3 teammates usando Sonnet:
+• Backend dev  → REST API, modelo de dados, endpoints
+• Frontend dev → espera o backend, então cria o React que consome a API
+• QA agent     → testa o app pronto, acha bugs, gera relatório pass/fail
+
+Handoff: backend → avisa frontend → envia ao QA.
+Entregáveis: app rodando + relatório de testes + doc de como rodar.</pre>
+          <div class="grid sm:grid-cols-3 gap-3 mt-3">
+            <div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-rose-400 mb-1">🧩 Papéis</div><p class="text-xs text-neutral-400">Cada teammate tem 1 responsabilidade clara</p></div>
+            <div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-rose-400 mb-1">✉️ Mensagens</div><p class="text-xs text-neutral-400">Handoff explícito entre as etapas</p></div>
+            <div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-rose-400 mb-1">📄 Guia local</div><p class="text-xs text-neutral-400">Gere um doc de referência em <code class="text-amber-400">docs/</code></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Módulo 6.3 -->
+  <div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-6-3">
+    <button onclick="toggleTopic(this)" aria-expanded="false" aria-controls="exp-6-3" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left">
+      <span class="text-rose-400 text-xs font-bold w-6 flex-shrink-0">6.3</span>
+      <span class="w-8 h-8 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+      <div class="flex-1 min-w-0">
+        <h2 class="text-xl font-bold">Claude Cowork</h2>
+        <p class="text-sm text-neutral-400 mt-0.5">Chat × Cowork × Code × Anti-Gravity · automações · dispatch</p>
+      </div>
+      <span class="text-xs text-neutral-500 hidden sm:block">~9 min</span>
+      <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
+    <div id="exp-6-3" class="topic-explanation px-5 pb-6">
+      <div class="border-t border-dark-600 pt-5 space-y-5">
+        <div><h3 class="text-base font-semibold text-rose-400 mb-2">🔴 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">O <strong>Cowork</strong> é o modo do Claude focado em <em>executar tarefas e automações</em> do dia (não programar): organizar arquivos, analisar e-mails, gerar relatórios, conectar apps. Pense nele como um <strong>colega digital</strong> a quem você delega trabalho — e paga em tokens, não em salário.</p></div>
+        <div><h3 class="text-base font-semibold text-rose-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Saber qual ferramenta usar evita frustração: nem tudo é "código". O <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">dispatch</code> do Cowork dispara tarefas que rodam em segundo plano, e os <strong>projetos</strong> guardam contexto e instruções globais reaproveitáveis.</p></div>
+        <div><h3 class="text-base font-semibold text-rose-400 mb-3">🔑 Qual usar quando</h3>
+          <div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Ferramenta</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Use para</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-sky-400">Chat</td><td class="px-4 py-2 text-neutral-300">Respostas rápidas, ideias, brainstorming</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-rose-400">Cowork</td><td class="px-4 py-2 text-neutral-300">Executar tarefas e automações (arquivos, e-mail, relatórios)</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-emerald-400">Code</td><td class="px-4 py-2 text-neutral-300">Programar, scripts, APIs, automações avançadas</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">Anti-Gravity</td><td class="px-4 py-2 text-neutral-300">IDE completa pra desenvolver apps com IA</td></tr></tbody></table></div>
+          <div class="rounded-xl bg-rose-500/5 border border-rose-500/20 p-4 mt-3"><p class="text-sm text-neutral-300"><span class="text-rose-400 font-semibold">Mentalidade:</span> trate a IA como funcionário digital. Defina <em>global instructions</em> uma vez, crie projetos por área e use <em>dispatch</em> pra rodar tarefas sem ficar olhando.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Módulo 6.4 -->
+  <div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-6-4">
+    <button onclick="toggleTopic(this)" aria-expanded="false" aria-controls="exp-6-4" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left">
+      <span class="text-rose-400 text-xs font-bold w-6 flex-shrink-0">6.4</span>
+      <span class="w-8 h-8 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+      <div class="flex-1 min-w-0">
+        <h2 class="text-xl font-bold">Segundo Cérebro (RAG)</h2>
+        <p class="text-sm text-neutral-400 mt-0.5">Obsidian + Claude Code · CLAUDE.md base + variants · notas como contexto</p>
+      </div>
+      <span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
+      <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
+    <div id="exp-6-4" class="topic-explanation px-5 pb-6">
+      <div class="border-t border-dark-600 pt-5 space-y-5">
+        <div><h3 class="text-base font-semibold text-rose-400 mb-2">🔴 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">Apontar o Claude Code para o seu <strong>vault do Obsidian</strong> (suas notas em Markdown) e usá-lo como um <em>segundo cérebro</em>: ele lê, conecta e escreve nas suas notas. Um <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">CLAUDE.md</code> base define a estrutura, e a pasta <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">variants/</code> guarda versões do sistema para perfis diferentes (freelancer, estudante, dev…).</p></div>
+        <div><h3 class="text-base font-semibold text-rose-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Suas notas viram contexto vivo: o Claude responde com base no que <em>você</em> sabe, não só no treino dele. É o approach "RAG sobre o seu conhecimento" que o Karpathy popularizou — memória externa pesquisável em vez de despejar tudo no prompt.</p></div>
+        <div><h3 class="text-base font-semibold text-rose-400 mb-3">🔑 Estrutura típica</h3>
+          <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 overflow-x-auto font-mono">vault/
+├── CLAUDE.md          # regras, contexto, como organizar as notas
+├── projetos/          # notas por projeto
+├── decisoes/          # log de decisões
+└── variants/          # versões do sistema p/ cada perfil
+    ├── freelancer/
+    ├── developer/
+    └── student/</pre>
+          <p class="text-xs text-neutral-400 mt-2">Combine com a trilha 5 (MCP): um servidor de embeddings/busca deixa a recuperação das notas mais precisa em vaults grandes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Módulo 6.5 -->
+  <div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-6-5">
+    <button onclick="toggleTopic(this)" aria-expanded="false" aria-controls="exp-6-5" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left">
+      <span class="text-rose-400 text-xs font-bold w-6 flex-shrink-0">6.5</span>
+      <span class="w-8 h-8 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
+      <div class="flex-1 min-w-0">
+        <h2 class="text-xl font-bold">Assistentes Aplicados</h2>
+        <p class="text-sm text-neutral-400 mt-0.5">PA pessoal · ClaudeClaw local · executivo · jurídico · contábil</p>
+      </div>
+      <span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
+      <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
+    <div id="exp-6-5" class="topic-explanation px-5 pb-6">
+      <div class="border-t border-dark-600 pt-5 space-y-5">
+        <div><h3 class="text-base font-semibold text-rose-400 mb-2">🔴 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">Os mesmos blocos (subagentes + skills + memória) montados como <strong>assistentes verticais</strong>: um assistente pessoal (PA AI), um assistente local que roda na sua máquina (ClaudeClaw), um executivo, um jurídico e até uma equipe de 5 agentes de contabilidade.</p></div>
+        <div><h3 class="text-base font-semibold text-rose-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Mostra que "agente" não é só pra código. Trocando o CLAUDE.md, as skills e as ferramentas (MCP), o mesmo Claude Code vira o motor de um produto de nicho — o pulo do estudo pra aplicação real.</p></div>
+        <div><h3 class="text-base font-semibold text-rose-400 mb-3">🔑 Exemplos da comunidade</h3>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-rose-400 mb-1">🧑‍💼 PA AI / Executivo</div><p class="text-xs text-neutral-400">Agenda, e-mails, follow-ups, briefings</p></div>
+            <div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-rose-400 mb-1">🐾 ClaudeClaw (local)</div><p class="text-xs text-neutral-400">Assistente pessoal rodando na sua máquina</p></div>
+            <div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-rose-400 mb-1">⚖️ Jurídico</div><p class="text-xs text-neutral-400">Analisa contratos e documentos com regras próprias</p></div>
+            <div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-rose-400 mb-1">📊 5 Agentes de Contabilidade</div><p class="text-xs text-neutral-400">Time dividindo lançamentos, conciliação e relatórios</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Módulo 6.6 -->
+  <div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-6-6">
+    <button onclick="toggleTopic(this)" aria-expanded="false" aria-controls="exp-6-6" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left">
+      <span class="text-rose-400 text-xs font-bold w-6 flex-shrink-0">6.6</span>
+      <span class="w-8 h-8 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">6</span>
+      <div class="flex-1 min-w-0">
+        <h2 class="text-xl font-bold">Automação e Pesquisa</h2>
+        <p class="text-sm text-neutral-400 mt-0.5">AutoResearch loop · Trigger.dev · agentic · agentes que rodam sozinhos</p>
+      </div>
+      <span class="text-xs text-neutral-500 hidden sm:block">~7 min</span>
+      <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
+    <div id="exp-6-6" class="topic-explanation px-5 pb-6">
+      <div class="border-t border-dark-600 pt-5 space-y-5">
+        <div><h3 class="text-base font-semibold text-rose-400 mb-2">🔴 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">Fechar o ciclo: agentes que <strong>rodam sozinhos</strong>. Um <em>AutoResearch loop</em> pesquisa um tema, verifica e sintetiza repetidamente até cobrir tudo; o <strong>Trigger.dev</strong> agenda e dispara agentes por eventos/cron; "agentic" é a mentalidade de encadear esses passos em automação contínua.</p></div>
+        <div><h3 class="text-base font-semibold text-rose-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">É o que transforma o Claude num membro da equipe que trabalha enquanto você dorme: revisões agendadas, pesquisa recorrente, relatórios automáticos. Junte com Routines (trilha 5) pra disparar por horário.</p></div>
+        <div><h3 class="text-base font-semibold text-rose-400 mb-3">🔑 Padrão loop-até-cobrir</h3>
+          <div class="space-y-2">
+            <div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-xs text-rose-400 font-bold flex-shrink-0">1</span><p class="text-sm text-neutral-300">Disparar buscas em paralelo (vários ângulos do tema)</p></div>
+            <div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-xs text-rose-400 font-bold flex-shrink-0">2</span><p class="text-sm text-neutral-300">Verificar cada achado de forma adversarial (refutar)</p></div>
+            <div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-xs text-rose-400 font-bold flex-shrink-0">3</span><p class="text-sm text-neutral-300">Repetir até 2 rodadas sem nada novo (loop-until-dry)</p></div>
+            <div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-xs text-sky-400 font-bold flex-shrink-0">4</span><p class="text-sm text-neutral-300">Sintetizar relatório final e agendar a próxima rodada (Trigger.dev)</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="flex items-center justify-between mt-10 pt-8 border-t border-dark-700">
+    <a href="../trilha5/" class="text-sm text-neutral-400 hover:text-neutral-200 transition flex items-center gap-2">← T5 MCP</a>
+    <a href="../../" class="text-sm text-rose-400 hover:text-rose-300 transition flex items-center gap-2">Voltar ao início →</a>
+  </div>
+
+</div>
+
+<footer class="border-t border-dark-700 py-10 px-4 mt-8">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <span class="text-primary font-black text-lg">Claude Code Básico</span>
+      <span class="text-dark-600">|</span>
+      <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm">INEMA.CLUB</a>
+    </div>
+    <p class="text-sm text-neutral-500">Canal <a href="https://t.me/c/3012468959" target="_blank" class="text-rose-400 hover:text-rose-300">Claude Code (INEMA)</a> · 2026</p>
+    <p class="text-xs text-neutral-600">Curado da comunidade · INEMA.CLUB</p>
+  </div>
+</footer>
+
+<script>
+  function toggleTopic(btn) {
+    const id = btn.getAttribute('aria-controls');
+    const panel = document.getElementById(id);
+    const svg = btn.querySelector('svg:last-child');
+    const isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    if (svg) svg.style.transform = isOpen ? '' : 'rotate(180deg)';
+  }
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.classList.toggle('dark');
+    document.getElementById('icon-sun').classList.toggle('hidden', isDark);
+    document.getElementById('icon-moon').classList.toggle('hidden', !isDark);
+    try { localStorage.setItem('inema.prefs', JSON.stringify({dark: isDark})); } catch(e){}
+  }
+  (function() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.getElementById('icon-sun').classList.toggle('hidden', isDark);
+    document.getElementById('icon-moon').classList.toggle('hidden', !isDark);
+  })();
+</script>
+</body>
+</html>
