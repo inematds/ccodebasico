@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Track 1 — Basics &amp; Installation | Claude Code Basics | INEMA.CLUB</title>
+<meta content="ccodebasico" name="inema-course"/>
+<script>
+    try {
+      var p = JSON.parse(localStorage.getItem('inema.prefs') || '{}');
+      if (p.dark === false) document.documentElement.classList.remove('dark');
+      else document.documentElement.classList.add('dark');
+    } catch(e) { document.documentElement.classList.add('dark'); }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'dark-900': '#0f172a', 'dark-800': '#1e293b', 'dark-700': '#334155', 'dark-600': '#475569', primary: '#FACC15' } } } }
+  </script>
+<style>
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) nav { background-color: rgba(255,255,255,0.95) !important; border-bottom-color: #e5e7eb !important; }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .text-red-400 { color: #b91c1c; }
+    html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+    .topic-explanation { display: none; }
+    .topic-explanation.open { display: block; }
+    [id] { scroll-margin-top: 72px; }
+    @keyframes wf-pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.4s} .wf-a:nth-child(3){animation-delay:.8s} .wf-a:nth-child(4){animation-delay:1.2s}
+    }
+  </style>
+<link href="https://inematds.github.io/ccodebasico/curso/trilha1/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ccodebasico/en/curso/trilha1/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ccodebasico/es/curso/trilha1/" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha1/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../es/curso/trilha1/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3 min-w-0">
+<a class="text-primary font-black text-xl tracking-tight" href="../../">Claude Code Basics</a>
+<span class="text-dark-600 hidden sm:inline">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium hidden sm:inline" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-medium" href="../trilha1/">T1 Basics</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-blue-400 transition" href="../trilha2/">T2 From Scratch</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-purple-400 transition hidden sm:inline" href="../trilha3/">T3 Context</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-amber-400 transition hidden md:inline" href="../trilha4/">T4 Skills</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-teal-400 transition hidden md:inline" href="../trilha5/">T5 MCP</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-rose-400 transition hidden lg:inline" href="../trilha6/">T6 Agents</a>
+<button aria-label="Toggle theme" class="w-8 h-8 rounded-lg bg-dark-700 hover:bg-dark-600 flex items-center justify-center transition text-neutral-400" onclick="toggleTheme()">
+<svg class="w-4 h-4 hidden" fill="currentColor" id="icon-sun" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4" fill="currentColor" id="icon-moon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+</button>
+</div>
+</div>
+</nav>
+<!-- TRAIL HEADER -->
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 items-center">
+<div>
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4 border border-emerald-500/30">TRACK 1</span>
+<h1 class="text-3xl sm:text-4xl font-black mb-3">🟢 Basics &amp; Installation</h1>
+<p class="text-neutral-300 text-lg mb-6 max-w-2xl">From zero to your first project. Install Claude Code on any system, sign in, master the essential commands, plan mode, and CLAUDE.md.</p>
+<div class="flex flex-wrap gap-4 text-sm">
+<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-emerald-400"></span>8 modules</span>
+<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-emerald-400"></span>~55 minutes</span>
+<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-emerald-400"></span>To get started from scratch</span>
+</div>
+</div>
+<!-- HERO SVG: fluxo de instalação -->
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-4 overflow-hidden">
+<svg aria-label="Installation flow: Git, Node.js, and npm lead to Claude Code running in the terminal" class="w-full h-auto" font-family="Inter,sans-serif" role="img" viewbox="0 0 640 220" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="t1-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop></lineargradient>
+<filter height="180%" id="t1-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.6"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="26" id="t1-grid" patternunits="userSpaceOnUse" width="26"><circle cx="1.2" cy="1.2" fill="#38bdf8" opacity="0.08" r="1.2"></circle></pattern>
+</defs>
+<rect fill="url(#t1-grid)" height="220" width="640"></rect>
+<!-- pré-requisitos -->
+<rect fill="#1e293b" height="34" rx="8" stroke="#38bdf8" stroke-width="1.6" width="120" x="24" y="34"></rect>
+<text fill="#38bdf8" font-size="9.5" font-weight="600" text-anchor="middle" x="84" y="50">1 · Git</text>
+<text fill="#64748b" font-size="7.5" text-anchor="middle" x="84" y="62">Git Bash (Windows)</text>
+<rect fill="#1e293b" height="34" rx="8" stroke="#38bdf8" stroke-width="1.6" width="120" x="24" y="92"></rect>
+<text fill="#38bdf8" font-size="9.5" font-weight="600" text-anchor="middle" x="84" y="108">2 · Node.js</text>
+<text fill="#64748b" font-size="7.5" text-anchor="middle" x="84" y="120">LTS 18+ · includes npm</text>
+<rect fill="#1e293b" height="34" rx="8" stroke="#38bdf8" stroke-width="1.6" width="120" x="24" y="150"></rect>
+<text fill="#38bdf8" font-size="9.5" font-weight="600" text-anchor="middle" x="84" y="166">3 · npm i -g</text>
+<text fill="#64748b" font-size="7.5" text-anchor="middle" x="84" y="178">@anthropic-ai/claude-code</text>
+<!-- setas -->
+<path class="wf-a" d="M144,51 C200,51 200,105 250,105" fill="none" opacity="0.7" stroke="#34d399" stroke-width="1.8"></path>
+<path class="wf-a" d="M144,109 L250,109" fill="none" opacity="0.7" stroke="#34d399" stroke-width="1.8"></path>
+<path class="wf-a" d="M144,167 C200,167 200,113 250,113" fill="none" opacity="0.7" stroke="#34d399" stroke-width="1.8"></path>
+<!-- claude code node -->
+<rect fill="url(#t1-grad)" filter="url(#t1-glow)" height="48" rx="12" width="150" x="250" y="86"></rect>
+<text fill="#022c22" font-size="12" font-weight="700" text-anchor="middle" x="325" y="106">✳ claude</text>
+<text fill="#064e3b" font-size="8" text-anchor="middle" x="325" y="122">log in + run in the terminal</text>
+<!-- terminal mock -->
+<path class="wf-a" d="M400,110 L452,110" fill="none" opacity="0.7" stroke="#34d399" stroke-width="1.8"></path>
+<rect fill="#0b1220" height="120" rx="10" stroke="#334155" stroke-width="1.4" width="164" x="452" y="50"></rect>
+<circle cx="466" cy="64" fill="#ef4444" r="3"></circle><circle cx="478" cy="64" fill="#f59e0b" r="3"></circle><circle cx="490" cy="64" fill="#22c55e" r="3"></circle>
+<text fill="#34d399" font-family="monospace" font-size="8" x="464" y="92">$ claude</text>
+<text fill="#94a3b8" font-family="monospace" font-size="7.5" x="464" y="108">› create an endpoint...</text>
+<text fill="#38bdf8" font-family="monospace" font-size="7.5" x="464" y="124">✓ edited app.py</text>
+<text fill="#38bdf8" font-family="monospace" font-size="7.5" x="464" y="140">✓ ran the tests</text>
+<text fill="#facc15" font-family="monospace" font-size="7.5" x="464" y="156">⏎ approve? (y/n)</text>
+</svg>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<!-- MAPA DA TRILHA (OBRIGATÓRIO) -->
+<section class="mb-12" id="mapa-da-trilha">
+<h2 class="text-2xl font-bold mb-6">Learning path map</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/40 p-4 transition block" href="#modulo-1-1">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 text-sm font-bold">1.1</span><span class="text-xs text-neutral-500">~5 min</span></div>
+<div class="font-semibold text-sm mb-1">🔍 What Claude Code Is</div>
+<p class="text-xs text-neutral-400">Agent that lives in the terminal</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/40 p-4 transition block" href="#modulo-1-2">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 text-sm font-bold">1.2</span><span class="text-xs text-neutral-500">~9 min</span></div>
+<div class="font-semibold text-sm mb-1">📦 Installation and Login</div>
+<p class="text-xs text-neutral-400">Win · macOS · Linux · WSL</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/40 p-4 transition block" href="#modulo-1-3">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 text-sm font-bold">1.3</span><span class="text-xs text-neutral-500">~6 min</span></div>
+<div class="font-semibold text-sm mb-1">⌨️ Getting Started</div>
+<p class="text-xs text-neutral-400">Approve edits, @ and #, Esc</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/40 p-4 transition block" href="#modulo-1-4">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 text-sm font-bold">1.4</span><span class="text-xs text-neutral-500">~7 min</span></div>
+<div class="font-semibold text-sm mb-1">⚡ Essential Commands</div>
+<p class="text-xs text-neutral-400">/clear /compact /context /cost</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/40 p-4 transition block" href="#modulo-1-5">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 text-sm font-bold">1.5</span><span class="text-xs text-neutral-500">~6 min</span></div>
+<div class="font-semibold text-sm mb-1">🗺️ Planning Mode</div>
+<p class="text-xs text-neutral-400">Shift+Tab · opusplan</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/40 p-4 transition block" href="#modulo-1-6">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 text-sm font-bold">1.6</span><span class="text-xs text-neutral-500">~7 min</span></div>
+<div class="font-semibold text-sm mb-1">🧠 CLAUDE.md — Memory</div>
+<p class="text-xs text-neutral-400">/init · permanent context</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/40 p-4 transition block" href="#modulo-1-7">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 text-sm font-bold">1.7</span><span class="text-xs text-neutral-500">~6 min</span></div>
+<div class="font-semibold text-sm mb-1">🛡️ Permissions &amp; Security</div>
+<p class="text-xs text-neutral-400">allow/deny · modes · sandbox</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/40 p-4 transition block" href="#modulo-1-8">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 text-sm font-bold">1.8</span><span class="text-xs text-neutral-500">~7 min</span></div>
+<div class="font-semibold text-sm mb-1">💰 Costs &amp; Configuration</div>
+<p class="text-xs text-neutral-400">Plans · /cost · models</p>
+</a>
+</div>
+</section>
+<h2 class="text-2xl font-bold mb-6">Detailed content</h2>
+<!-- Módulo 1.1 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-1-1">
+<button aria-controls="exp-1-1" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-emerald-400 text-xs font-bold w-6 flex-shrink-0">1.1</span>
+<span class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">What Claude Code is</h2>
+<p class="text-sm text-neutral-400 mt-0.5">Coding agent in the terminal · where it runs · the agent cycle</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~5 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-1-1">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">🟢 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">O <strong>Claude Code</strong> is Anthropic’s coding agent that runs <strong>in your terminal</strong>. It’s not autocomplete or chat: it <em>reads</em> your project, <em>plans</em>, <em>edits</em> files, <em>runs</em> commands and tests, use <em>git</em> and browses the web — always asking for your approval. You speak Portuguese; it executes.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">Unlike pasting code from a chat, Claude Code works <strong>inside the actual repository</strong> — understands the full context via <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">CLAUDE.md</code>, respects your stack and runs on any system. It's the foundation for everything in the upcoming tracks.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-3">🔑 Where You Can Use It</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-3 text-neutral-300 font-semibold">Where</th><th class="text-left px-4 py-3 text-neutral-300 font-semibold">Best for</th><th class="text-left px-4 py-3 text-neutral-300 font-semibold">Detail</th></tr></thead><tbody class="divide-y divide-dark-600"><tr class="hover:bg-dark-700/50"><td class="px-4 py-3 text-emerald-400 font-mono text-xs font-semibold">Terminal (CLI)</td><td class="px-4 py-3 text-neutral-300 text-xs">Speed + control</td><td class="px-4 py-3 text-neutral-400 text-xs">macOS, Windows, Linux. The main way</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-3 text-sky-400 font-mono text-xs font-semibold">VS Code / JetBrains</td><td class="px-4 py-3 text-neutral-300 text-xs">View diffs in the IDE</td><td class="px-4 py-3 text-neutral-400 text-xs">Official extension, same engine as the CLI</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-3 text-amber-400 font-mono text-xs font-semibold">Web / Desktop</td><td class="px-4 py-3 text-neutral-300 text-xs">Delegate and run in parallel</td><td class="px-4 py-3 text-neutral-400 text-xs">claude.ai/code and desktop app (Mac/Windows)</td></tr></tbody></table></div>
+</div>
+<div class="rounded-xl bg-emerald-500/5 border border-emerald-500/20 p-4"><p class="text-sm text-neutral-300"><span class="text-emerald-400 font-semibold">The agent’s cycle:</span> <strong>reads → plans → edits → runs/tests → shows the diff → you approve</strong>. Understanding this loop is what separates those who “play around” from those who produce.</p></div>
+</div>
+</div>
+</div>
+<!-- Módulo 1.2 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-1-2">
+<button aria-controls="exp-1-2" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-emerald-400 text-xs font-bold w-6 flex-shrink-0">1.2</span>
+<span class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Installation and Login</h2>
+<p class="text-sm text-neutral-400 mt-0.5">Git · Node.js · npm install · login · Windows / macOS / Linux / WSL</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~9 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-1-2">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">🟢 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">Installation via <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">npm</code>. Prerequisites: <strong>Node.js 18+</strong> and, on Windows, <strong>Git Bash</strong>. Sign-in is through <em>subscription</em> (Pro/Max via browser) or through <em>API key</em> by Anthropic.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">An outdated Node version causes silent failures. On Windows, Claude Code won’t run without Git Bash—it’s the #1 mistake beginners make. Following the right order avoids 90% of installation problems.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-3">🔑 Step by Step (The Right Order)</h3>
+<div class="space-y-3">
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-4"><div class="text-xs font-bold text-neutral-400 mb-2 uppercase tracking-wider">🟩 Windows</div>
+<pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono"># 1. Instale o Git (inclui o Git Bash) → git-scm.com/download/win
+# 2. Instale o Node.js LTS → nodejs.org
+# 3. Confira:
+node -v
+npm -v
+# 4. Instale o Claude Code:
+npm install -g @anthropic-ai/claude-code
+# 5. Rode:
+claude</pre>
+<p class="text-xs text-neutral-400 mt-2">If you get a Git Bash error: <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">setx CLAUDE_CODE_GIT_BASH_PATH "C:\Program Files\Git\bin\bash.exe"</code> and reopen the terminal.</p>
+</div>
+<div class="grid sm:grid-cols-2 gap-3">
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-4"><div class="text-xs font-bold text-neutral-400 mb-2 uppercase tracking-wider">🍎 macOS</div><pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono">brew install node
+npm install -g @anthropic-ai/claude-code
+claude</pre></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-4"><div class="text-xs font-bold text-neutral-400 mb-2 uppercase tracking-wider">🐧 Linux / WSL</div><pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono">sudo apt update &amp;&amp; sudo apt install -y nodejs npm
+npm install -g @anthropic-ai/claude-code
+claude</pre></div>
+</div>
+<div class="bg-emerald-500/5 border border-emerald-500/30 rounded-xl p-4"><div class="text-xs font-bold text-emerald-400 mb-2 uppercase tracking-wider">Login (first time)</div><pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono"># Dentro do claude, rode:
+/login        # abre o navegador → conta Pro/Max (recomendado)
+
+# OU, via API key (pague por uso):
+setx ANTHROPIC_API_KEY "sk-ant-..."   # Windows
+export ANTHROPIC_API_KEY="sk-ant-..." # macOS/Linux</pre></div>
+</div>
+</div>
+<div class="rounded-xl bg-amber-500/5 border border-amber-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-amber-400 font-semibold">💡 Tip:</span> have a Claude Pro or Max subscription? Use <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/login</code> with OAuth — no API key needed, and usage is included in your plan.</p></div>
+</div>
+</div>
+</div>
+<!-- Módulo 1.3 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-1-3">
+<button aria-controls="exp-1-3" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-emerald-400 text-xs font-bold w-6 flex-shrink-0">1.3</span>
+<span class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Getting Started in the Terminal</h2>
+<p class="text-sm text-neutral-400 mt-0.5">approve edits · @ files · # memory · Esc · print mode</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~6 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-1-3">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">🟢 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">You run <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">claude</code> inside the project folder and type your request in natural language. It proposes edits like <em>diffs</em> that you approve or reject. <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">@</code> references files and <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">#</code> saves something to memory.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">The fear that “it’ll mess up my code” goes away when you understand the approval loop: <strong>nothing changes without you seeing the diff</strong>. <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">Esc</code> stops immediately if it takes the wrong direction.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-3">🔑 Key Concepts</h3>
+<pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mb-3">cd meu-projeto
+claude                          # abre o modo interativo
+claude "corrija o bug do login" # pedido direto
+claude -p "resuma o README"     # print mode: responde e sai (scripts)</pre>
+<div class="grid sm:grid-cols-2 gap-2 text-sm bg-dark-700/40 border border-dark-600 rounded-xl p-4">
+<div class="flex gap-2"><code class="text-amber-400 font-mono text-xs">@src/app.py</code><span class="text-neutral-400 text-xs">— references a file</span></div>
+<div class="flex gap-2"><code class="text-amber-400 font-mono text-xs"># sempre use pnpm</code><span class="text-neutral-400 text-xs">— saves to memory</span></div>
+<div class="flex gap-2"><code class="text-amber-400 font-mono text-xs">Esc</code><span class="text-neutral-400 text-xs">— interrupts the agent</span></div>
+<div class="flex gap-2"><code class="text-amber-400 font-mono text-xs">Shift+Tab</code><span class="text-neutral-400 text-xs">— switches the permission mode</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 1.4 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-1-4">
+<button aria-controls="exp-1-4" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-emerald-400 text-xs font-bold w-6 flex-shrink-0">1.4</span>
+<span class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Essential Slash Commands</h2>
+<p class="text-sm text-neutral-400 mt-0.5">/help /clear /compact /context /cost /model /resume /agents</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~7 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-1-4">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">🟢 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">Commands that start with <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/</code> control the <em>session</em> (not the project). Type <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/</code> and see the list. The most commonly used manage the <strong>context</strong> — the scarcest resource in a session.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed"><code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/clear</code> e <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/compact</code> are what keep the session fast and inexpensive. Without them, the context fills up, Claude slows down, and "forgets" the beginning. (Track 3 explores this in more depth.)</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-3">🔑 The Essentials</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Command</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">What it does</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/help</td><td class="px-4 py-2 text-neutral-300">Lists all commands</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/clear</td><td class="px-4 py-2 text-neutral-300">Clears the context — start a fresh task</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/compact</td><td class="px-4 py-2 text-neutral-300">Summarizes the conversation to free up context without losing the thread</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/context</td><td class="px-4 py-2 text-neutral-300">Shows how much of the context is being used</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/cost</td><td class="px-4 py-2 text-neutral-300">Current session spending/usage</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/model</td><td class="px-4 py-2 text-neutral-300">Switch the model (Opus / Sonnet / opusplan)</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/resume</td><td class="px-4 py-2 text-neutral-300">Resumes a previous session</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/init</td><td class="px-4 py-2 text-neutral-300">Generates the project’s CLAUDE.md (module 1.6)</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/agents</td><td class="px-4 py-2 text-neutral-300">Creates and manages subagents (track 6)</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 1.5 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-1-5">
+<button aria-controls="exp-1-5" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-emerald-400 text-xs font-bold w-6 flex-shrink-0">1.5</span>
+<span class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Planning Mode</h2>
+<p class="text-sm text-neutral-400 mt-0.5">Shift+Tab · plan mode · /model opusplan · when planning ahead</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~6 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-1-5">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">🟢 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">Pressing <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">Shift+Tab</code> you switch between session modes. In <strong>plan mode</strong> (plan mode), Claude <em>investigates and proposes a plan</em> — but <strong>doesn't edit anything</strong> until you approve.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">For large or risky tasks, letting it “start editing” is a recipe for rework. Planning first aligns the path. The preset <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">opusplan</code> uses Opus (more powerful) to plan and Sonnet (cheaper/faster) to execute — quality where it matters, savings elsewhere.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-3">🔑 The 3 Modes (Shift+Tab Cycles)</h3>
+<div class="grid sm:grid-cols-3 gap-3">
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-neutral-300 mb-1">⌨️ Normal</div><p class="text-xs text-neutral-400">Ask for approval before every edit/command</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-sky-400 mb-1">⚡ Auto-accept</div><p class="text-xs text-neutral-400">Applies edits without asking (acceptEdits)</p></div>
+<div class="bg-dark-700/40 border border-emerald-500/30 rounded-xl p-3"><div class="text-xs font-bold text-emerald-400 mb-1">🗺️ Plan</div><p class="text-xs text-neutral-400">Only investigates and proposes — doesn’t edit</p></div>
+</div>
+<pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mt-3">/model opusplan   # Opus planeja, Sonnet executa</pre>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 1.6 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-1-6">
+<button aria-controls="exp-1-6" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-emerald-400 text-xs font-bold w-6 flex-shrink-0">1.6</span>
+<span class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">6</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">CLAUDE.md — Project Memory</h2>
+<p class="text-sm text-neutral-400 mt-0.5">/init · persistent context · hierarchy · what to write</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~7 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-1-6">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">🟢 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">O <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">CLAUDE.md</code> is a file at the project root with the <strong>permanent context</strong>: how to run, conventions, rules, what not to do. The command <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/init</code> generates one for you by analyzing the repo. The folder <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">.claude/</code> stores settings, commands, agents, and skills.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">Without CLAUDE.md, Claude starts from scratch each session and repeats the same mistakes. With it, Claude follows your stack and style from the first prompt. It’s the 5-minute investment that improves <em>all</em> the following sessions.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-3">🔑 Memory Hierarchy</h3>
+<div class="space-y-2 mb-3">
+<div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-xs text-emerald-400 font-bold flex-shrink-0">1</span><p class="text-sm text-neutral-300"><code class="text-amber-400 font-mono text-xs">~/.claude/CLAUDE.md</code> — your own rules, apply in <strong>all</strong> the projects</p></div>
+<div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-xs text-emerald-400 font-bold flex-shrink-0">2</span><p class="text-sm text-neutral-300"><code class="text-amber-400 font-mono text-xs">./CLAUDE.md</code> — project rules (goes into git, the whole team uses it)</p></div>
+<div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-xs text-emerald-400 font-bold flex-shrink-0">3</span><p class="text-sm text-neutral-300"><code class="text-amber-400 font-mono text-xs">./CLAUDE.local.md</code> — yours only, not version-controlled</p></div>
+</div>
+<pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 overflow-x-auto font-mono"># Projeto X
+- Stack: Next.js + TypeScript + pnpm
+- Rodar: `pnpm dev` · Testar: `pnpm test`
+- Convenção: componentes em PascalCase, sem default export
+- NUNCA commitar direto na main</pre>
+<p class="text-xs text-neutral-400 mt-2">Shortcut: type <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono"># sua regra</code> in the session to attach something to CLAUDE.md right away.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 1.7 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-1-7">
+<button aria-controls="exp-1-7" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-emerald-400 text-xs font-bold w-6 flex-shrink-0">1.7</span>
+<span class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">7</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Permissions &amp; Security</h2>
+<p class="text-sm text-neutral-400 mt-0.5">allow/deny · permission modes · /permissions · sandbox</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~6 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-1-7">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">🟢 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">By default, Claude <strong>asks for permission</strong> before editing files or running commands. You define lists of <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">allow</code> / <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">deny</code> e o <em>mode</em> permission. The command <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/permissions</code> manages everything.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">Permissions are your seat belt. Allow safe commands (e.g., <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">npm test</code>) reduces clicks; but <strong>never</strong> use bypass on machines with sensitive data or in production.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-3">🔑 Permission Modes</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Mode</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Behavior</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Risk</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-emerald-400">default</td><td class="px-4 py-2 text-neutral-300">Ask before every sensitive action</td><td class="px-4 py-2 text-emerald-400">Low</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">acceptEdits</td><td class="px-4 py-2 text-neutral-300">Accepts automatic file edits</td><td class="px-4 py-2 text-amber-400">Intermediate</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">plan</td><td class="px-4 py-2 text-neutral-300">Just plan; don't change anything</td><td class="px-4 py-2 text-emerald-400">None</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-red-400">bypassPermissions</td><td class="px-4 py-2 text-neutral-300">Doesn’t ask for anything (--dangerously-skip-permissions)</td><td class="px-4 py-2 text-red-400">High ⚠️</td></tr></tbody></table></div>
+<pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mt-3">/permissions          # abre o gerenciador
+# em .claude/settings.json:
+# "permissions": { "allow": ["Bash(npm test)"], "deny": ["Bash(rm -rf *)"] }</pre>
+</div>
+<div class="rounded-xl bg-red-500/5 border border-red-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-red-400 font-semibold">⚠️ Don’t:</span> run <code class="bg-dark-900 px-1.5 py-0.5 rounded text-red-400 text-xs font-mono">--dangerously-skip-permissions</code> on your personal machine just to “go faster.” Use this only in disposable containers/VMs.</p></div>
+</div>
+</div>
+</div>
+<!-- Módulo 1.8 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-1-8">
+<button aria-controls="exp-1-8" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-emerald-400 text-xs font-bold w-6 flex-shrink-0">1.8</span>
+<span class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">8</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Costs &amp; Setup</h2>
+<p class="text-sm text-neutral-400 mt-0.5">plans · /cost · choose model · settings.json · opus[1m]</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~7 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-1-8">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">🟢 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">You use Claude Code through <strong>subscription</strong> (Pro/Max — included usage) or through <strong>API</strong> (paid per token). <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/cost</code> shows the session's spending. The choice of <strong>model</strong> has the biggest impact on cost and speed.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">Using Opus for everything is expensive and unnecessary. Sonnet handles day-to-day work; Opus is for what’s difficult; opusplan combines the two. Along with <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/compact</code> e <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/clear</code>, you control the cost.</p></div>
+<div><h3 class="text-base font-semibold text-emerald-400 mb-3">🔑 Models — When to Use Each</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Model</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Use for</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">Opus</td><td class="px-4 py-2 text-neutral-300">Hard tasks, architecture, tricky debugging</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-emerald-400">Sonnet</td><td class="px-4 py-2 text-neutral-300">Everyday use — fast and capable, best value</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-sky-400">Haiku</td><td class="px-4 py-2 text-neutral-300">Simple, inexpensive tasks at high volume</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-purple-400">opus[1m]</td><td class="px-4 py-2 text-neutral-300">1-million-token context (huge repos)</td></tr></tbody></table></div>
+<pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mt-3">/cost                       # gasto da sessão
+/model sonnet               # troca pro Sonnet
+claude --model "opus[1m]"   # abre com contexto de 1M</pre>
+</div>
+<div class="rounded-xl bg-amber-500/5 border border-amber-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-amber-400 font-semibold">💡 Money-saving tip:</span> start the task with <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/clear</code>, use <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">opusplan</code> and run <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/compact</code> when the <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/context</code> exceed ~70%.</p></div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="flex items-center justify-between mt-10 pt-8 border-t border-dark-700">
+<a class="text-sm text-neutral-400 hover:text-neutral-200 transition flex items-center gap-2" href="../../">← Home</a>
+<a class="text-sm text-blue-400 hover:text-blue-300 transition flex items-center gap-2" href="../trilha2/">Next: T2 Building from Scratch →</a>
+</div>
+</div>
+<footer class="border-t border-dark-700 py-10 px-4 mt-8">
+<div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="text-primary font-black text-lg">Claude Code Basics</span>
+<span class="text-dark-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<p class="text-sm text-neutral-500">Channel <a class="text-emerald-400 hover:text-emerald-300" href="https://t.me/c/3012468959" target="_blank">Claude Code (INEMA)</a> · 2026</p>
+<p class="text-xs text-neutral-600">Community-curated · INEMA.CLUB</p>
+</div>
+</footer>
+<script>
+  function toggleTopic(btn) {
+    const id = btn.getAttribute('aria-controls');
+    const panel = document.getElementById(id);
+    const svg = btn.querySelector('svg:last-child');
+    const isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    if (svg) svg.style.transform = isOpen ? '' : 'rotate(180deg)';
+  }
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.classList.toggle('dark');
+    document.getElementById('icon-sun').classList.toggle('hidden', isDark);
+    document.getElementById('icon-moon').classList.toggle('hidden', !isDark);
+    try { localStorage.setItem('inema.prefs', JSON.stringify({dark: isDark})); } catch(e){}
+  }
+  (function() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.getElementById('icon-sun').classList.toggle('hidden', isDark);
+    document.getElementById('icon-moon').classList.toggle('hidden', !isDark);
+  })();
+</script>
+</body>
+</html>

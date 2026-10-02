@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Track 3 — Context &amp; Commands | Claude Code Basics | INEMA.CLUB</title>
+<meta content="ccodebasico" name="inema-course"/>
+<script>
+    try {
+      var p = JSON.parse(localStorage.getItem('inema.prefs') || '{}');
+      if (p.dark === false) document.documentElement.classList.remove('dark');
+      else document.documentElement.classList.add('dark');
+    } catch(e) { document.documentElement.classList.add('dark'); }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'dark-900': '#0f172a', 'dark-800': '#1e293b', 'dark-700': '#334155', 'dark-600': '#475569', primary: '#FACC15' } } } }
+  </script>
+<style>
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) nav { background-color: rgba(255,255,255,0.95) !important; border-bottom-color: #e5e7eb !important; }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .text-red-400 { color: #b91c1c; }
+    html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+    .topic-explanation { display: none; }
+    .topic-explanation.open { display: block; }
+    [id] { scroll-margin-top: 72px; }
+    @keyframes wf-pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.4s} .wf-a:nth-child(3){animation-delay:.8s} .wf-a:nth-child(4){animation-delay:1.2s}
+    }
+  </style>
+<link href="https://inematds.github.io/ccodebasico/curso/trilha3/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ccodebasico/en/curso/trilha3/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ccodebasico/es/curso/trilha3/" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha3/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../es/curso/trilha3/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3 min-w-0">
+<a class="text-primary font-black text-xl tracking-tight" href="../../">Claude Code Basics</a>
+<span class="text-dark-600 hidden sm:inline">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium hidden sm:inline" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-emerald-400 transition" href="../trilha1/">T1 Basics</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-blue-400 transition" href="../trilha2/">T2 From Scratch</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-purple-500/20 text-purple-400 border border-purple-500/30 font-medium" href="../trilha3/">T3 Context</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-amber-400 transition hidden md:inline" href="../trilha4/">T4 Skills</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-teal-400 transition hidden md:inline" href="../trilha5/">T5 MCP</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-rose-400 transition hidden lg:inline" href="../trilha6/">T6 Agents</a>
+<button aria-label="Toggle theme" class="w-8 h-8 rounded-lg bg-dark-700 hover:bg-dark-600 flex items-center justify-center transition text-neutral-400" onclick="toggleTheme()">
+<svg class="w-4 h-4 hidden" fill="currentColor" id="icon-sun" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4" fill="currentColor" id="icon-moon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+</button>
+</div>
+</div>
+</nav>
+<!-- TRAIL HEADER -->
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 items-center">
+<div>
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4 border border-purple-500/30">TRACK 3</span>
+<h1 class="text-3xl sm:text-4xl font-black mb-3">🟣 Context &amp; Commands</h1>
+<p class="text-neutral-300 text-lg mb-6 max-w-2xl">What separates people who tinker from those who deliver: actively managing context and mastering advanced session commands.</p>
+<div class="flex flex-wrap gap-4 text-sm">
+<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-purple-400"></span>6 modules</span>
+<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-purple-400"></span>~50 minutes</span>
+<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-purple-400"></span>Intermediate</span>
+</div>
+</div>
+<!-- HERO SVG: janela de contexto enchendo + /compact comprimindo -->
+<div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-4 overflow-hidden">
+<svg aria-label="Context window filling with noise and the barra-compact command compressing it back to the essentials" class="w-full h-auto" font-family="Inter,sans-serif" role="img" viewbox="0 0 640 220" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="t3-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#8b5cf6"></stop><stop offset="1" stop-color="#a78bfa"></stop></lineargradient>
+<filter height="180%" id="t3-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.6"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="26" id="t3-grid" patternunits="userSpaceOnUse" width="26"><circle cx="1.2" cy="1.2" fill="#38bdf8" opacity="0.08" r="1.2"></circle></pattern>
+</defs>
+<rect fill="url(#t3-grid)" height="220" width="640"></rect>
+<text fill="#a78bfa" font-size="10" font-weight="700" x="40" y="40">CONTEXT WINDOW</text>
+<!-- barra cheia (ruído) -->
+<rect fill="#1e293b" height="30" rx="6" stroke="#334155" stroke-width="1.2" width="360" x="40" y="54"></rect>
+<rect fill="#7c3aed" height="30" opacity="0.45" rx="6" width="300" x="40" y="54"></rect>
+<rect fill="url(#t3-grad)" height="30" rx="6" width="120" x="40" y="54"></rect>
+<text fill="#f5f3ff" font-size="8" font-weight="600" text-anchor="middle" x="100" y="73">useful</text>
+<text fill="#c4b5fd" font-size="8" text-anchor="middle" x="250" y="73">noise: reads, searches, attempts...</text>
+<text fill="#ef4444" font-size="9" x="408" y="73">↯ gets saturated</text>
+<!-- seta /compact -->
+<path class="wf-a" d="M220,96 L220,128" fill="none" marker-end="" stroke="#38bdf8" stroke-width="1.8"></path>
+<rect fill="#0b1220" height="26" rx="13" stroke="#38bdf8" stroke-width="1.4" width="104" x="168" y="128"></rect>
+<text fill="#38bdf8" font-family="monospace" font-size="9" text-anchor="middle" x="220" y="145">/compact</text>
+<!-- barra comprimida -->
+<text fill="#34d399" font-size="10" font-weight="700" x="40" y="178">AFTER</text>
+<rect fill="#1e293b" height="26" rx="6" stroke="#334155" stroke-width="1.2" width="360" x="40" y="186"></rect>
+<rect fill="url(#t3-grad)" filter="url(#t3-glow)" height="26" rx="6" width="130" x="40" y="186"></rect>
+<text fill="#f5f3ff" font-size="8" font-weight="600" text-anchor="middle" x="105" y="203">summary + focus</text>
+<text fill="#64748b" font-size="8" text-anchor="middle" x="300" y="203">room to think</text>
+<!-- comandos laterais -->
+<rect fill="#1e293b" height="40" rx="8" stroke="#a78bfa" stroke-width="1.4" width="150" x="452" y="54"></rect>
+<text fill="#a78bfa" font-family="monospace" font-size="8.5" text-anchor="middle" x="527" y="71">/context</text>
+<text fill="#64748b" font-size="7" text-anchor="middle" x="527" y="85">how much have I used?</text>
+<rect fill="#1e293b" height="40" rx="8" stroke="#a78bfa" stroke-width="1.4" width="150" x="452" y="104"></rect>
+<text fill="#a78bfa" font-family="monospace" font-size="8.5" text-anchor="middle" x="527" y="121">/clear</text>
+<text fill="#64748b" font-size="7" text-anchor="middle" x="527" y="135">new, clean task</text>
+<rect fill="#1e293b" height="40" rx="8" stroke="#38bdf8" stroke-width="1.4" width="150" x="452" y="154"></rect>
+<text fill="#38bdf8" font-family="monospace" font-size="8.5" text-anchor="middle" x="527" y="171">/btw · /fork</text>
+<text fill="#64748b" font-size="7" text-anchor="middle" x="527" y="185">without cluttering the thread</text>
+</svg>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<!-- MAPA DA TRILHA (OBRIGATÓRIO) -->
+<section class="mb-12" id="mapa-da-trilha">
+<h2 class="text-2xl font-bold mb-6">Learning path map</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/40 p-4 transition block" href="#modulo-3-1">
+<div class="flex items-center justify-between mb-2"><span class="text-purple-400 text-sm font-bold">3.1</span><span class="text-xs text-neutral-500">~8 min</span></div>
+<div class="font-semibold text-sm mb-1">🪟 How Context Works</div>
+<p class="text-xs text-neutral-400">/context /compact /clear</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/40 p-4 transition block" href="#modulo-3-2">
+<div class="flex items-center justify-between mb-2"><span class="text-purple-400 text-sm font-bold">3.2</span><span class="text-xs text-neutral-500">~9 min</span></div>
+<div class="font-semibold text-sm mb-1">⌨️ Advanced Commands</div>
+<p class="text-xs text-neutral-400">/btw /fork /loop /schedule</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/40 p-4 transition block" href="#modulo-3-3">
+<div class="flex items-center justify-between mb-2"><span class="text-purple-400 text-sm font-bold">3.3</span><span class="text-xs text-neutral-500">~6 min</span></div>
+<div class="font-semibold text-sm mb-1">🧠 MegaThink &amp; UltraThink</div>
+<p class="text-xs text-neutral-400">reasoning budget</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/40 p-4 transition block" href="#modulo-3-4">
+<div class="flex items-center justify-between mb-2"><span class="text-purple-400 text-sm font-bold">3.4</span><span class="text-xs text-neutral-500">~8 min</span></div>
+<div class="font-semibold text-sm mb-1">⚙️ Session Optimization</div>
+<p class="text-xs text-neutral-400">/clear /compact · opusplan · hooks</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/40 p-4 transition block" href="#modulo-3-5">
+<div class="flex items-center justify-between mb-2"><span class="text-purple-400 text-sm font-bold">3.5</span><span class="text-xs text-neutral-500">~7 min</span></div>
+<div class="font-semibold text-sm mb-1">🏛️ 6 Pillars &amp; 5 Levels</div>
+<p class="text-xs text-neutral-400">competency map</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/40 p-4 transition block" href="#modulo-3-6">
+<div class="flex items-center justify-between mb-2"><span class="text-purple-400 text-sm font-bold">3.6</span><span class="text-xs text-neutral-500">~9 min</span></div>
+<div class="font-semibold text-sm mb-1">🎩 Creator’s Hacks &amp; Tips</div>
+<p class="text-xs text-neutral-400">Boris's 15 secrets</p>
+</a>
+</div>
+</section>
+<h2 class="text-2xl font-bold mb-6">Detailed content</h2>
+<!-- Módulo 3.1 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-3-1">
+<button aria-controls="exp-3-1" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-purple-400 text-xs font-bold w-6 flex-shrink-0">3.1</span>
+<span class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">How Context Works</h2>
+<p class="text-sm text-neutral-400 mt-0.5">context window · /context · /compact · /clear · hygiene</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-3-1">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-purple-400 mb-2">🟣 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">A <strong>context window</strong> is the session’s working memory—and it’s finite. Every file read, search, command output, and failed attempt takes up space in it. When it fills up, Claude has less room to reason about the main task.</p></div>
+<div><h3 class="text-base font-semibold text-purple-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">In long sessions, quality seems to drop—but <strong>it's not the model that gets worse; it's the context that gets cluttered</strong>. Anyone who masters <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/clear</code> e <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/compact</code> keeps Claude sharp for hours. It's the most underrated skill in Claude Code.</p></div>
+<div><h3 class="text-base font-semibold text-purple-400 mb-3">🔑 The 3 Context Commands</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Command</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">What it does</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">When</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/context</td><td class="px-4 py-2 text-neutral-300">Shows how much of the window is in use</td><td class="px-4 py-2 text-neutral-400">To decide when to act</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/compact</td><td class="px-4 py-2 text-neutral-300">Summarizes the conversation without losing the thread</td><td class="px-4 py-2 text-neutral-400">~70% full, same task</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/clear</td><td class="px-4 py-2 text-neutral-300">Clears the context completely</td><td class="px-4 py-2 text-neutral-400">Switched tasks</td></tr></tbody></table></div>
+</div>
+<div class="rounded-xl bg-purple-500/5 border border-purple-500/20 p-4"><p class="text-sm text-neutral-300"><span class="text-purple-400 font-semibold">Context hygiene:</span> keep the <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">CLAUDE.md</code> lean, avoid dumping huge files into the conversation, and give <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/clear</code> when changing topics. Clean context = better answers.</p></div>
+</div>
+</div>
+</div>
+<!-- Módulo 3.2 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-3-2">
+<button aria-controls="exp-3-2" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-purple-400 text-xs font-bold w-6 flex-shrink-0">3.2</span>
+<span class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Advanced Session Commands</h2>
+<p class="text-sm text-neutral-400 mt-0.5">/btw · /fork · /loop · /schedule · /buddy · auto-mode</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~9 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-3-2">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-purple-400 mb-2">🟣 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">In addition to clearing context, Claude Code has commands to <strong>control the flow</strong> without cluttering the main conversation: parallel questions, branching paths, running on its own in a loop, and automatic permission mode.</p></div>
+<div><h3 class="text-base font-semibold text-purple-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">Long tasks require context management <em>actively</em>. Instead of asking a secondary question that fills the window, use <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/btw</code>. Instead of risking a path and derailing the thread, ask a <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/fork</code>.</p></div>
+<div><h3 class="text-base font-semibold text-purple-400 mb-3">🔑 The Commands</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Command</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">What for</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/btw</td><td class="px-4 py-2 text-neutral-300">One-turn parallel question — without breaking your flow, but with all the context</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/fork</td><td class="px-4 py-2 text-neutral-300">Branch the session to explore another path without losing your place</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/loop</td><td class="px-4 py-2 text-neutral-300">Runs a task at intervals on its own for up to a few days</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/schedule</td><td class="px-4 py-2 text-neutral-300">Schedules runs (e.g., review PRs every 30 min)</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/buddy</td><td class="px-4 py-2 text-neutral-300">"Pair programming" mode: reasons alongside you and teaches you instead of just executing</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">auto-mode</td><td class="px-4 py-2 text-neutral-300">Risk classifier: safe actions go through, risky ones are flagged</td></tr></tbody></table></div>
+<pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mt-3"># forkar uma sessão pelo CLI:
+claude --resume &lt;session-id&gt; --fork-session
+# rodar a tarefa em loop:
+/loop a cada 30 min, verifique novos PRs e resolva comentários</pre>
+<p class="text-xs text-neutral-400 mt-2">⚠️ Several of these are <strong>skills/commands you install</strong> (some from the community, popularized on the channel: <code class="bg-dark-900 px-1 py-0.5 rounded text-amber-400">/btw</code> <code class="bg-dark-900 px-1 py-0.5 rounded text-amber-400">/buddy</code>). The context ones (<code class="bg-dark-900 px-1 py-0.5 rounded text-amber-400">/clear</code> <code class="bg-dark-900 px-1 py-0.5 rounded text-amber-400">/compact</code>) e o <code class="bg-dark-900 px-1 py-0.5 rounded text-amber-400">--fork-session</code> are native.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 3.3 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-3-3">
+<button aria-controls="exp-3-3" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-purple-400 text-xs font-bold w-6 flex-shrink-0">3.3</span>
+<span class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">MegaThink and UltraThink</h2>
+<p class="text-sm text-neutral-400 mt-0.5">reasoning budget · trigger words · when it's worth it</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~6 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-3-3">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-purple-400 mb-2">🟣 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">Claude Code recognizes <strong>trigger words</strong> that increase the <em>reasoning budget</em> (extended thinking). The "stronger" the word, the more tokens Claude spends thinking before taking action.</p></div>
+<div><h3 class="text-base font-semibold text-purple-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">A difficult problem — architecture audit, major refactor, tricky debugging — gets much easier when you deliberately ask Claude to think more deeply. But reasoning costs tokens; use it only when it’s worth it.</p></div>
+<div><h3 class="text-base font-semibold text-purple-400 mb-3">🔑 The Two Levels</h3>
+<div class="grid sm:grid-cols-2 gap-3">
+<div class="bg-dark-700/40 border border-amber-500/30 rounded-xl p-4"><div class="text-sm font-bold text-amber-400 mb-1">🟠 MegaThink</div><p class="text-xs text-neutral-400 mb-2">~10,000 reasoning tokens</p><p class="text-xs text-neutral-300 mb-2"><span class="text-neutral-500">Triggers:</span> <code class="text-amber-400 font-mono">think hard</code>, <code class="text-amber-400 font-mono">think deeply</code>, <code class="text-amber-400 font-mono">megathink</code></p><p class="text-xs text-neutral-400">Medium/large refactors, design documents, structured planning</p></div>
+<div class="bg-dark-700/40 border border-red-500/30 rounded-xl p-4"><div class="text-sm font-bold text-red-400 mb-1">🔴 UltraThink</div><p class="text-xs text-neutral-400 mb-2">~32,000 reasoning tokens</p><p class="text-xs text-neutral-300 mb-2"><span class="text-neutral-500">Triggers:</span> <code class="text-amber-400 font-mono">ultrathink</code>, <code class="text-amber-400 font-mono">think harder</code>, <code class="text-amber-400 font-mono">think very hard</code></p><p class="text-xs text-neutral-400">Full architecture audits, in-depth multistep planning</p></div>
+</div>
+</div>
+<div class="rounded-xl bg-amber-500/5 border border-amber-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-amber-400 font-semibold">💡 Tip:</span> say <strong>"ultrathink"</strong> when you want a deep, multistep plan; <strong>"think hard"</strong> for detailed refactors. Leave it without a trigger for everything else—it’s faster and cheaper.</p></div>
+</div>
+</div>
+</div>
+<!-- Módulo 3.4 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-3-4">
+<button aria-controls="exp-3-4" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-purple-400 text-xs font-bold w-6 flex-shrink-0">3.4</span>
+<span class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Session Optimization</h2>
+<p class="text-sm text-neutral-400 mt-0.5">2 real levers · opusplan · /config + hooks · /ultraplan</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-3-4">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-purple-400 mb-2">🟣 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">Commands that help you <strong>improve your own usage</strong> of Claude Code: learn the fundamentals, measure how you work, and discover where to improve.</p></div>
+<div><h3 class="text-base font-semibold text-purple-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">The biggest lever isn’t a standalone command; it’s the <em>improvement loop</em>: measure → adjust rules and hooks → repeat. Those who do this stay months ahead of those who just “use” it.</p></div>
+<div><h3 class="text-base font-semibold text-purple-400 mb-3">🔑 The Real Levers</h3>
+<div class="grid sm:grid-cols-2 gap-3 mb-3">
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-4"><div class="text-sm font-bold text-purple-400 mb-1">🧹 /clear + /compact</div><p class="text-xs text-neutral-400">The 2 biggest levers: clear context when switching tasks, compact when you pass ~70% of the <code class="text-amber-400 font-mono">/context</code>. Always a sharp session.</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-4"><div class="text-sm font-bold text-emerald-400 mb-1">🧭 opusplan</div><p class="text-xs text-neutral-400">Opus plans, Sonnet executes (<code class="text-amber-400 font-mono">/model opusplan</code>). Quality in planning, low cost in execution.</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-4"><div class="text-sm font-bold text-amber-400 mb-1">⚙️ /config + hooks</div><p class="text-xs text-neutral-400">Adjust output styles and permissions in <code class="text-amber-400 font-mono">/config</code>; automate the agent cycle with hooks in the <code class="text-amber-400 font-mono">settings.json</code>.</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-4"><div class="text-sm font-bold text-sky-400 mb-1">🗺️ /ultraplan <span class="text-neutral-500 font-normal text-xs">(community)</span></div><p class="text-xs text-neutral-400">Deep planning + extended reasoning before touching the code — a popular custom skill on the channel.</p></div>
+</div>
+<div class="rounded-xl bg-purple-500/5 border border-purple-500/20 p-4"><p class="text-sm text-neutral-300"><span class="text-purple-400 font-semibold">Continuous improvement loop:</span> measure how you work (your logs stay in <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">~/.claude/projects</code>) → turn what you've learned into rules in the <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">CLAUDE.md</code> and hooks → save it in a second brain (track 6) → repeat.</p></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 3.5 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-3-5">
+<button aria-controls="exp-3-5" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-purple-400 text-xs font-bold w-6 flex-shrink-0">3.5</span>
+<span class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">6 Pillars and 5 Competency Levels</h2>
+<p class="text-sm text-neutral-400 mt-0.5">proficiency map · where you are · what's missing</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~7 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-3-5">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-purple-400 mb-2">🟣 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">One <strong>competency map</strong> to find your way around: the pillars of effective Claude Code use and the levels every user moves through—from “improved chat” to “agent orchestrator.”</p></div>
+<div><h3 class="text-base font-semibold text-purple-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">Without a roadmap, you stay stuck at level 1 without realizing it. Knowing the next step (e.g., "I don’t use subagents yet") turns random use into deliberate progress.</p></div>
+<div><h3 class="text-base font-semibold text-purple-400 mb-3">🔑 The 5 Levels (Ladder)</h3>
+<div class="space-y-2 mb-4">
+<div class="flex gap-3 items-start"><span class="w-6 h-6 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-xs text-purple-400 font-bold flex-shrink-0">1</span><p class="text-sm text-neutral-300"><strong>Conversation</strong> — use it like a chat in the terminal, with targeted edits</p></div>
+<div class="flex gap-3 items-start"><span class="w-6 h-6 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-xs text-purple-400 font-bold flex-shrink-0">2</span><p class="text-sm text-neutral-300"><strong>Context</strong> — CLAUDE.md, /clear and /compact, plan mode</p></div>
+<div class="flex gap-3 items-start"><span class="w-6 h-6 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-xs text-purple-400 font-bold flex-shrink-0">3</span><p class="text-sm text-neutral-300"><strong>Extension</strong> — skills, MCP, hooks, custom commands</p></div>
+<div class="flex gap-3 items-start"><span class="w-6 h-6 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-xs text-purple-400 font-bold flex-shrink-0">4</span><p class="text-sm text-neutral-300"><strong>Parallel</strong> — subagents, worktrees, several Claudes at the same time</p></div>
+<div class="flex gap-3 items-start"><span class="w-6 h-6 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-xs text-purple-400 font-bold flex-shrink-0">5</span><p class="text-sm text-neutral-300"><strong>Orchestration</strong> — agent teams, scheduled automations, Cowork (track 6)</p></div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+<div class="bg-dark-700/40 border border-dark-600 rounded-lg p-2 text-center text-neutral-400">Context</div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-lg p-2 text-center text-neutral-400">Memory</div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-lg p-2 text-center text-neutral-400">Permissions</div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-lg p-2 text-center text-neutral-400">Skills/Agents</div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-lg p-2 text-center text-neutral-400">Verification</div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-lg p-2 text-center text-neutral-400">Automation</div>
+</div>
+<p class="text-xs text-neutral-500 mt-2">The 6 pillars that support every level.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 3.6 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-3-6">
+<button aria-controls="exp-3-6" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-purple-400 text-xs font-bold w-6 flex-shrink-0">3.6</span>
+<span class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">6</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Creator’s Hacks and Tips</h2>
+<p class="text-sm text-neutral-400 mt-0.5">Boris Cherny's 15 favorite hidden features + 32 hacks</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~9 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-3-6">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-purple-400 mb-2">🟣 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">A collection of rarely used resources — including the famous thread from <strong>Boris Cherny</strong>, creator of Claude Code, with his 15 favorite hidden features. This is where the "real leverage" is.</p></div>
+<div><h3 class="text-base font-semibold text-purple-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">Most people have never used hooks, worktrees, or the mobile app. These features aren’t just for show: they’re what separates people who run <em>one</em> Claude for those who run it <em>dozens</em> in parallel.</p></div>
+<div><h3 class="text-base font-semibold text-purple-400 mb-3">🔑 Creator Highlights</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Resource</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">What it does</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">Mobile app</td><td class="px-4 py-2 text-neutral-300">"Code" tab in the Claude app (iOS/Android) — full sessions from your phone</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/loop + /schedule</td><td class="px-4 py-2 text-neutral-300">Run automatically at intervals — track PRs, code review (skills)</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">Hooks</td><td class="px-4 py-2 text-neutral-300">Deterministic logic in the agent cycle (SessionStart, PreToolUse, Stop...)</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">git worktree</td><td class="px-4 py-2 text-neutral-300">Multiple Claudes in parallel, each on a branch/worktree — no conflicts</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">--fork-session</td><td class="px-4 py-2 text-neutral-300">Resume by branching: <code>claude --resume &lt;id&gt; --fork-session</code></td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">.claude/commands</td><td class="px-4 py-2 text-neutral-300">Custom slash commands — automate recurring team workflows</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">--add-dir</td><td class="px-4 py-2 text-neutral-300">Access multiple repositories without switching sessions</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/agents</td><td class="px-4 py-2 text-neutral-300">Subagents with their own prompts and tools (<code>.claude/agents/</code>) — track 6</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/mcp</td><td class="px-4 py-2 text-neutral-300">Connects external tools via MCP servers — Track 5</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">claude -p</td><td class="px-4 py-2 text-neutral-300">Headless mode (print) — run Claude in scripts and pipelines</td></tr></tbody></table></div>
+<div class="rounded-xl bg-purple-500/5 border border-purple-500/20 p-4 mt-3"><p class="text-sm text-neutral-300"><span class="text-purple-400 font-semibold">🌐 Boris’s #1 tip:</span> give Claude a way to <strong>verify its own results</strong> — the Chrome extension for web coding. “If you don’t give it a browser, the visual result probably won’t be good.”</p></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="flex items-center justify-between mt-10 pt-8 border-t border-dark-700">
+<a class="text-sm text-neutral-400 hover:text-neutral-200 transition flex items-center gap-2" href="../trilha2/">← Previous: T2 Building from Scratch</a>
+<a class="text-sm text-amber-400 hover:text-amber-300 transition flex items-center gap-2" href="../trilha4/">Next: T4 Skills →</a>
+</div>
+</div>
+<footer class="border-t border-dark-700 py-10 px-4 mt-8">
+<div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="text-primary font-black text-lg">Claude Code Basics</span>
+<span class="text-dark-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<p class="text-sm text-neutral-500">Channel <a class="text-emerald-400 hover:text-emerald-300" href="https://t.me/c/3012468959" target="_blank">Claude Code (INEMA)</a> · 2026</p>
+<p class="text-xs text-neutral-600">Community-curated · INEMA.CLUB</p>
+</div>
+</footer>
+<script>
+  function toggleTopic(btn) {
+    const id = btn.getAttribute('aria-controls');
+    const panel = document.getElementById(id);
+    const svg = btn.querySelector('svg:last-child');
+    const isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    if (svg) svg.style.transform = isOpen ? '' : 'rotate(180deg)';
+  }
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.classList.toggle('dark');
+    document.getElementById('icon-sun').classList.toggle('hidden', isDark);
+    document.getElementById('icon-moon').classList.toggle('hidden', !isDark);
+    try { localStorage.setItem('inema.prefs', JSON.stringify({dark: isDark})); } catch(e){}
+  }
+  (function() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.getElementById('icon-sun').classList.toggle('hidden', isDark);
+    document.getElementById('icon-moon').classList.toggle('hidden', !isDark);
+  })();
+</script>
+</body>
+</html>

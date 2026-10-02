@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="pt-BR">
+<html class="dark" lang="es">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Claude Code Básico — Curso Completo | INEMA.CLUB</title>
-<meta content="Curso completo de Claude Code em 6 trilhas: instalação e básico, construindo do zero, contexto e comandos, skills e memória, MCP e integrações, agentes e Cowork." name="description"/>
+<meta content="Curso completo de Claude Code en 6 recorridos: instalación y conceptos básicos, construir desde cero, contexto y comandos, skills y memoria, MCP e integraciones, agentes y Cowork." name="description"/>
 <meta content="ccodebasico" name="inema-course"/>
 <!-- ANTI-FOUC: PRIMEIRO no head, antes de tudo -->
 <script>
@@ -105,7 +105,7 @@
     [id] { scroll-margin-top: 72px; }
   </style>
 <link href="https://inematds.github.io/ccodebasico/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ccodebasico/en/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ccodebasico/es/" hreflang="es" rel="alternate"/></head>
-<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="./" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="en/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="es/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../en/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
 <!-- ══════════════════════════════════════════
      NAV
 ══════════════════════════════════════════ -->
@@ -118,12 +118,12 @@
 </div>
 <div class="flex items-center gap-1.5 flex-wrap">
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/30 transition font-medium" href="curso/trilha1/">T1 Básico</a>
-<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-blue-400 hover:bg-blue-500/20 transition" href="curso/trilha2/">T2 Do Zero</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-blue-400 hover:bg-blue-500/20 transition" href="curso/trilha2/">T2 Desde cero</a>
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-purple-400 hover:bg-purple-500/20 transition hidden sm:inline" href="curso/trilha3/">T3 Contexto</a>
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-amber-400 hover:bg-amber-500/20 transition hidden md:inline" href="curso/trilha4/">T4 Skills</a>
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-teal-400 hover:bg-teal-500/20 transition hidden md:inline" href="curso/trilha5/">T5 MCP</a>
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-rose-400 hover:bg-rose-500/20 transition hidden lg:inline" href="curso/trilha6/">T6 Agentes</a>
-<button aria-label="Alternar tema" class="w-8 h-8 rounded-lg bg-dark-700 hover:bg-dark-600 flex items-center justify-center transition text-neutral-400 hover:text-neutral-200" onclick="toggleTheme()">
+<button aria-label="Cambiar tema" class="w-8 h-8 rounded-lg bg-dark-700 hover:bg-dark-600 flex items-center justify-center transition text-neutral-400 hover:text-neutral-200" onclick="toggleTheme()">
 <svg class="w-4 h-4 hidden" fill="currentColor" id="icon-sun" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
 <svg class="w-4 h-4" fill="currentColor" id="icon-moon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
 </button>
@@ -140,21 +140,21 @@
 <div>
 <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full text-xs font-semibold mb-4">
 <svg class="w-3 h-3" fill="currentColor" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-          6 Trilhas · 125 Tópicos · Canal Claude Code
+          6 Rutas · 125 Temas · Canal Claude Code
         </div>
 <h1 class="text-4xl sm:text-5xl font-black tracking-tight mb-4">
 <span class="text-primary">Claude Code</span> Básico
         </h1>
-<p class="text-xl text-neutral-300 mb-2">Curso completo do agente de codificação da Anthropic.</p>
-<p class="text-sm text-neutral-400 mb-8">Instalação · Comandos · Contexto · Skills &amp; Memória · MCP · Agentes &amp; Cowork</p>
+<p class="text-xl text-neutral-300 mb-2">Curso completo del agente de codificación de Anthropic.</p>
+<p class="text-sm text-neutral-400 mb-8">Instalación · Comandos · Contexto · Skills y memoria · MCP · Agentes y Cowork</p>
 <div class="flex flex-wrap gap-3">
-<a class="px-5 py-2.5 rounded-xl bg-primary text-dark-900 font-bold text-sm hover:bg-yellow-300 transition" href="curso/trilha1/">Começar pelo Básico →</a>
-<a class="px-5 py-2.5 rounded-xl bg-dark-700 text-neutral-300 font-medium text-sm hover:bg-dark-600 transition border border-dark-600" href="https://t.me/c/3012468959" target="_blank">Canal Telegram</a>
+<a class="px-5 py-2.5 rounded-xl bg-primary text-dark-900 font-bold text-sm hover:bg-yellow-300 transition" href="curso/trilha1/">Empezar por lo Básico →</a>
+<a class="px-5 py-2.5 rounded-xl bg-dark-700 text-neutral-300 font-medium text-sm hover:bg-dark-600 transition border border-dark-600" href="https://t.me/c/3012468959" target="_blank">Canal de Telegram</a>
 </div>
 </div>
 <!-- SVG Hero: 6 trilhas em fan-out -->
 <div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-4 overflow-hidden">
-<svg aria-label="Claude Code — 6 trilhas de aprendizagem irradiando do agente central" class="w-full h-auto" font-family="Inter,sans-serif" role="img" viewbox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+<svg aria-label="Claude Code — 6 rutas de aprendizaje que irradian desde el agente central" class="w-full h-auto" font-family="Inter,sans-serif" role="img" viewbox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <lineargradient id="lp-grad" x1="0" x2="1" y1="0" y2="1">
 <stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop>
@@ -171,7 +171,7 @@
 <!-- Center CLAUDE CODE node -->
 <rect fill="url(#lp-grad)" filter="url(#lp-glow)" height="46" rx="12" width="168" x="266" y="107"></rect>
 <text fill="#022c22" font-size="13" font-weight="700" text-anchor="middle" x="350" y="127">✳ CLAUDE CODE</text>
-<text fill="#064e3b" font-size="9" text-anchor="middle" x="350" y="143">agente no terminal</text>
+<text fill="#064e3b" font-size="9" text-anchor="middle" x="350" y="143">agente en la terminal</text>
 <!-- Left branches -->
 <path class="wf-a" d="M266,120 C200,120 180,42 90,42" fill="none" opacity="0.65" stroke="#34d399" stroke-width="1.8"></path>
 <path class="wf-a" d="M266,130 L90,130" fill="none" opacity="0.65" stroke="#60a5fa" stroke-width="1.8"></path>
@@ -183,20 +183,20 @@
 <!-- Left nodes -->
 <rect fill="#1e293b" height="32" rx="8" stroke="#34d399" stroke-width="1.8" width="85" x="5" y="26"></rect>
 <text fill="#34d399" font-size="8.5" font-weight="600" text-anchor="middle" x="47" y="40">T1 Básico</text>
-<text fill="#64748b" font-size="7" text-anchor="middle" x="47" y="52">instalação</text>
+<text fill="#64748b" font-size="7" text-anchor="middle" x="47" y="52">instalación</text>
 <rect fill="#1e293b" height="32" rx="8" stroke="#60a5fa" stroke-width="1.8" width="85" x="5" y="114"></rect>
-<text fill="#60a5fa" font-size="8.5" font-weight="600" text-anchor="middle" x="47" y="128">T2 Do Zero</text>
-<text fill="#64748b" font-size="7" text-anchor="middle" x="47" y="140">dia-a-dia</text>
+<text fill="#60a5fa" font-size="8.5" font-weight="600" text-anchor="middle" x="47" y="128">T2 Desde cero</text>
+<text fill="#64748b" font-size="7" text-anchor="middle" x="47" y="140">día a día</text>
 <rect fill="#1e293b" height="32" rx="8" stroke="#a78bfa" stroke-width="1.8" width="85" x="5" y="202"></rect>
 <text fill="#a78bfa" font-size="8.5" font-weight="600" text-anchor="middle" x="47" y="216">T3 Contexto</text>
 <text fill="#64748b" font-size="7" text-anchor="middle" x="47" y="228">comandos</text>
 <!-- Right nodes -->
 <rect fill="#1e293b" height="32" rx="8" stroke="#fbbf24" stroke-width="1.8" width="85" x="610" y="26"></rect>
 <text fill="#fbbf24" font-size="8.5" font-weight="600" text-anchor="middle" x="652" y="40">T4 Skills</text>
-<text fill="#64748b" font-size="7" text-anchor="middle" x="652" y="52">memória</text>
+<text fill="#64748b" font-size="7" text-anchor="middle" x="652" y="52">memoria</text>
 <rect fill="#1e293b" height="32" rx="8" stroke="#2dd4bf" stroke-width="1.8" width="85" x="610" y="114"></rect>
 <text fill="#2dd4bf" font-size="8.5" font-weight="600" text-anchor="middle" x="652" y="128">T5 MCP</text>
-<text fill="#64748b" font-size="7" text-anchor="middle" x="652" y="140">integrações</text>
+<text fill="#64748b" font-size="7" text-anchor="middle" x="652" y="140">integraciones</text>
 <rect fill="#1e293b" height="32" rx="8" stroke="#fb7185" stroke-width="1.8" width="85" x="610" y="202"></rect>
 <text fill="#fb7185" font-size="8.5" font-weight="600" text-anchor="middle" x="652" y="216">T6 Agentes</text>
 <text fill="#64748b" font-size="7" text-anchor="middle" x="652" y="228">Cowork</text>
@@ -209,85 +209,85 @@
      TRAIL CARDS
 ══════════════════════════════════════════ -->
 <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-<h2 class="text-2xl font-bold mb-2">Escolha sua trilha</h2>
-<p class="text-neutral-400 text-sm mb-8">Cada trilha é uma jornada independente. Comece pela T1 se está começando agora.</p>
+<h2 class="text-2xl font-bold mb-2">Elige tu ruta</h2>
+<p class="text-neutral-400 text-sm mb-8">Cada ruta es un recorrido independiente. Empieza por la T1 si recién comienzas.</p>
 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
 <!-- T1 Emerald -->
 <a class="group bg-dark-800 rounded-2xl border border-dark-600 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all p-6 block" href="curso/trilha1/">
 <div class="flex items-center gap-3 mb-4">
 <span class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold text-sm flex-shrink-0">T1</span>
-<span class="text-emerald-400 text-xs font-semibold uppercase tracking-wider">TRILHA 1</span>
+<span class="text-emerald-400 text-xs font-semibold uppercase tracking-wider">RUTA 1</span>
 </div>
-<h3 class="text-xl font-bold group-hover:text-emerald-400 transition mb-2">🟢 Básico &amp; Instalação</h3>
-<p class="text-sm text-neutral-400 mb-4 leading-relaxed">Do zero ao primeiro projeto: instalar no Windows/macOS/Linux, login, comandos essenciais, modo plano, permissões e o CLAUDE.md.</p>
+<h3 class="text-xl font-bold group-hover:text-emerald-400 transition mb-2">🟢 Básico e instalación</h3>
+<p class="text-sm text-neutral-400 mb-4 leading-relaxed">Desde cero hasta el primer proyecto: instalar en Windows/macOS/Linux, iniciar sesión, comandos esenciales, modo plan, permisos y el CLAUDE.md.</p>
 <div class="flex items-center justify-between">
 <span class="text-xs text-neutral-500">8 módulos · ~55 min</span>
-<span class="text-xs text-emerald-400 group-hover:translate-x-1 transition-transform inline-block">Começar →</span>
+<span class="text-xs text-emerald-400 group-hover:translate-x-1 transition-transform inline-block">Empezar →</span>
 </div>
 </a>
 <!-- T2 Blue -->
 <a class="group bg-dark-800 rounded-2xl border border-dark-600 hover:border-blue-500/40 hover:bg-blue-500/5 transition-all p-6 block" href="curso/trilha2/">
 <div class="flex items-center gap-3 mb-4">
 <span class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center font-bold text-sm flex-shrink-0">T2</span>
-<span class="text-blue-400 text-xs font-semibold uppercase tracking-wider">TRILHA 2</span>
+<span class="text-blue-400 text-xs font-semibold uppercase tracking-wider">RUTA 2</span>
 </div>
-<h3 class="text-xl font-bold group-hover:text-blue-400 transition mb-2">🔵 Construindo do Zero</h3>
-<p class="text-sm text-neutral-400 mb-4 leading-relaxed">A série dia-a-dia do canal: do primeiro app ao planejador de workflows, dashboards e projetos reais (Leilão, PETS, Build Anything).</p>
+<h3 class="text-xl font-bold group-hover:text-blue-400 transition mb-2">🔵 Construyendo desde Cero</h3>
+<p class="text-sm text-neutral-400 mb-4 leading-relaxed">La serie día a día del canal: desde la primera app hasta el planificador de workflows, dashboards y proyectos reales (Leilão, PETS, Build Anything).</p>
 <div class="flex items-center justify-between">
 <span class="text-xs text-neutral-500">7 módulos · ~50 min</span>
-<span class="text-xs text-blue-400 group-hover:translate-x-1 transition-transform inline-block">Começar →</span>
+<span class="text-xs text-blue-400 group-hover:translate-x-1 transition-transform inline-block">Empezar →</span>
 </div>
 </a>
 <!-- T3 Purple -->
 <a class="group bg-dark-800 rounded-2xl border border-dark-600 hover:border-purple-500/40 hover:bg-purple-500/5 transition-all p-6 block" href="curso/trilha3/">
 <div class="flex items-center gap-3 mb-4">
 <span class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center font-bold text-sm flex-shrink-0">T3</span>
-<span class="text-purple-400 text-xs font-semibold uppercase tracking-wider">TRILHA 3</span>
+<span class="text-purple-400 text-xs font-semibold uppercase tracking-wider">RUTA 3</span>
 </div>
-<h3 class="text-xl font-bold group-hover:text-purple-400 transition mb-2">🟣 Contexto &amp; Comandos</h3>
-<p class="text-sm text-neutral-400 mb-4 leading-relaxed">Domine o contexto: /loop, /fork, modo plano, gestão de tokens, os 6 pilares, 32 hacks e as 15 dicas do criador do Claude Code.</p>
+<h3 class="text-xl font-bold group-hover:text-purple-400 transition mb-2">🟣 Contexto y comandos</h3>
+<p class="text-sm text-neutral-400 mb-4 leading-relaxed">Domina el contexto: /loop, /fork, modo plan, gestión de tokens, los 6 pilares, 32 trucos y los 15 consejos del creador de Claude Code.</p>
 <div class="flex items-center justify-between">
 <span class="text-xs text-neutral-500">6 módulos · ~50 min</span>
-<span class="text-xs text-purple-400 group-hover:translate-x-1 transition-transform inline-block">Começar →</span>
+<span class="text-xs text-purple-400 group-hover:translate-x-1 transition-transform inline-block">Empezar →</span>
 </div>
 </a>
 <!-- T4 Amber -->
 <a class="group bg-dark-800 rounded-2xl border border-dark-600 hover:border-amber-500/40 hover:bg-amber-500/5 transition-all p-6 block" href="curso/trilha4/">
 <div class="flex items-center gap-3 mb-4">
 <span class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold text-sm flex-shrink-0">T4</span>
-<span class="text-amber-400 text-xs font-semibold uppercase tracking-wider">TRILHA 4</span>
+<span class="text-amber-400 text-xs font-semibold uppercase tracking-wider">RUTA 4</span>
 </div>
-<h3 class="text-xl font-bold group-hover:text-amber-400 transition mb-2">🟡 Skills, Plugins &amp; Memória</h3>
-<p class="text-sm text-neutral-400 mb-4 leading-relaxed">Estenda o Claude Code: criar e usar Skills, plugins, o Vision plugin, memória permanente (Memory 2.0) e o guia definitivo do CLAUDE.md.</p>
+<h3 class="text-xl font-bold group-hover:text-amber-400 transition mb-2">🟡 Skills, Plugins y memoria</h3>
+<p class="text-sm text-neutral-400 mb-4 leading-relaxed">Amplía Claude Code: crear y usar Skills, plugins, el plugin Vision, memoria permanente (Memory 2.0) y la guía definitiva de CLAUDE.md.</p>
 <div class="flex items-center justify-between">
 <span class="text-xs text-neutral-500">6 módulos · ~45 min</span>
-<span class="text-xs text-amber-400 group-hover:translate-x-1 transition-transform inline-block">Começar →</span>
+<span class="text-xs text-amber-400 group-hover:translate-x-1 transition-transform inline-block">Empezar →</span>
 </div>
 </a>
 <!-- T5 Teal -->
 <a class="group bg-dark-800 rounded-2xl border border-dark-600 hover:border-teal-500/40 hover:bg-teal-500/5 transition-all p-6 block" href="curso/trilha5/">
 <div class="flex items-center gap-3 mb-4">
 <span class="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 border border-teal-500/30 flex items-center justify-center font-bold text-sm flex-shrink-0">T5</span>
-<span class="text-teal-400 text-xs font-semibold uppercase tracking-wider">TRILHA 5</span>
+<span class="text-teal-400 text-xs font-semibold uppercase tracking-wider">RUTA 5</span>
 </div>
-<h3 class="text-xl font-bold group-hover:text-teal-400 transition mb-2">🟢 MCP &amp; Integrações</h3>
-<p class="text-sm text-neutral-400 mb-4 leading-relaxed">Conecte o mundo: MCP servers (NotebookLM, Supabase, Firecrawl, Playwright), modelos free (CCR, Ollama), Routines e monitores de uso.</p>
+<h3 class="text-xl font-bold group-hover:text-teal-400 transition mb-2">🟢 MCP e integraciones</h3>
+<p class="text-sm text-neutral-400 mb-4 leading-relaxed">Conecta el mundo: servidores MCP (NotebookLM, Supabase, Firecrawl, Playwright), modelos gratis (CCR, Ollama), Routines y monitores de uso.</p>
 <div class="flex items-center justify-between">
 <span class="text-xs text-neutral-500">6 módulos · ~50 min</span>
-<span class="text-xs text-teal-400 group-hover:translate-x-1 transition-transform inline-block">Começar →</span>
+<span class="text-xs text-teal-400 group-hover:translate-x-1 transition-transform inline-block">Empezar →</span>
 </div>
 </a>
 <!-- T6 Rose -->
 <a class="group bg-dark-800 rounded-2xl border border-dark-600 hover:border-rose-500/40 hover:bg-rose-500/5 transition-all p-6 block" href="curso/trilha6/">
 <div class="flex items-center gap-3 mb-4">
 <span class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center justify-center font-bold text-sm flex-shrink-0">T6</span>
-<span class="text-rose-400 text-xs font-semibold uppercase tracking-wider">TRILHA 6</span>
+<span class="text-rose-400 text-xs font-semibold uppercase tracking-wider">RUTA 6</span>
 </div>
-<h3 class="text-xl font-bold group-hover:text-rose-400 transition mb-2">🔴 Agentes &amp; Cowork</h3>
-<p class="text-sm text-neutral-400 mb-4 leading-relaxed">Multiagentes e automação: times de agentes, orquestração, Claude Cowork, segundo cérebro (Obsidian + RAG) e projetos aplicados.</p>
+<h3 class="text-xl font-bold group-hover:text-rose-400 transition mb-2">🔴 Agentes y Cowork</h3>
+<p class="text-sm text-neutral-400 mb-4 leading-relaxed">Multiagentes y automatización: equipos de agentes, orquestación, Claude Cowork, segundo cerebro (Obsidian + RAG) y proyectos aplicados.</p>
 <div class="flex items-center justify-between">
 <span class="text-xs text-neutral-500">6 módulos · ~55 min</span>
-<span class="text-xs text-rose-400 group-hover:translate-x-1 transition-transform inline-block">Começar →</span>
+<span class="text-xs text-rose-400 group-hover:translate-x-1 transition-transform inline-block">Empezar →</span>
 </div>
 </a>
 </div>
@@ -299,23 +299,23 @@
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
 <div class="bg-dark-800 rounded-2xl border border-dark-600 p-5 text-center">
 <div class="text-3xl font-black text-primary mb-1">6</div>
-<div class="text-xs text-neutral-400">Trilhas</div>
+<div class="text-xs text-neutral-400">Rutas</div>
 </div>
 <div class="bg-dark-800 rounded-2xl border border-dark-600 p-5 text-center">
 <div class="text-3xl font-black text-emerald-400 mb-1">125</div>
-<div class="text-xs text-neutral-400">Tópicos do canal</div>
+<div class="text-xs text-neutral-400">Temas del canal</div>
 </div>
 <div class="bg-dark-800 rounded-2xl border border-dark-600 p-5 text-center">
 <div class="text-3xl font-black text-sky-400 mb-1">1090</div>
-<div class="text-xs text-neutral-400">Mensagens curadas</div>
+<div class="text-xs text-neutral-400">Mensajes seleccionados</div>
 </div>
 <div class="bg-dark-800 rounded-2xl border border-dark-600 p-5 text-center">
 <div class="text-3xl font-black text-purple-400 mb-1">480</div>
-<div class="text-xs text-neutral-400">Links úteis</div>
+<div class="text-xs text-neutral-400">Enlaces útiles</div>
 </div>
 </div>
 <div class="text-center">
-<p class="text-neutral-500 text-sm">Conteúdo extraído e curado do canal <a class="text-emerald-400 hover:text-emerald-300" href="https://t.me/c/3012468959" target="_blank">Claude Code (INEMA) no Telegram</a></p>
+<p class="text-neutral-500 text-sm">Contenido extraído y seleccionado del canal <a class="text-emerald-400 hover:text-emerald-300" href="https://t.me/c/3012468959" target="_blank">Claude Code (INEMA) en Telegram</a></p>
 </div>
 </section>
 <!-- ══════════════════════════════════════════
@@ -328,11 +328,11 @@
 <span class="text-dark-600">|</span>
 <a class="text-sky-400 hover:text-sky-300 text-sm" href="https://inema.club" target="_blank">INEMA.CLUB</a>
 </div>
-<p class="text-sm text-neutral-500 text-center">Canal <a class="text-emerald-400 hover:text-emerald-300" href="https://t.me/c/3012468959" target="_blank">Claude Code (INEMA)</a> · 125 tópicos · 2026</p>
-<p class="text-xs text-neutral-600">Curado de 1090 mensagens · INEMA.CLUB</p>
+<p class="text-sm text-neutral-500 text-center">Canal <a class="text-emerald-400 hover:text-emerald-300" href="https://t.me/c/3012468959" target="_blank">Claude Code (INEMA)</a> · 125 temas · 2026</p>
+<p class="text-xs text-neutral-600">Seleccionado de 1090 mensajes · INEMA.CLUB</p>
 </div>
 <!-- inema-backlink:v1 -->
-<p style="display:block;width:100%;text-align:center;font-size:.85rem;margin:.75rem 0 0;opacity:.85"><a href="https://www.inema.club/cursos/163-claude-code-basico-curso-completo/" style="color:inherit;text-decoration:underline">Ficha completa deste curso no INEMA.CLUB</a> · <a href="https://www.inema.club/aprender-inteligencia-artificial/" style="color:inherit;text-decoration:underline">Guia: como aprender inteligência artificial</a></p>
+<p style="display:block;width:100%;text-align:center;font-size:.85rem;margin:.75rem 0 0;opacity:.85"><a href="https://www.inema.club/cursos/163-claude-code-basico-curso-completo/" style="color:inherit;text-decoration:underline">Ficha completa de este curso en INEMA.CLUB</a> · <a href="https://www.inema.club/aprender-inteligencia-artificial/" style="color:inherit;text-decoration:underline">Guía: cómo aprender inteligencia artificial</a></p>
 <!-- /inema-backlink:v1 -->
 </footer>
 <script>

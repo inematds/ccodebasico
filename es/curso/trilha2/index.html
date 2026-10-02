@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="pt-BR">
+<html class="dark" lang="es">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Trilha 2 — Construindo do Zero | Claude Code Básico | INEMA.CLUB</title>
+<title>Ruta 2 — Construir desde cero | Claude Code Básico | INEMA.CLUB</title>
 <meta content="ccodebasico" name="inema-course"/>
 <script>
     try {
@@ -54,7 +54,7 @@
     }
   </style>
 <link href="https://inematds.github.io/ccodebasico/curso/trilha2/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ccodebasico/en/curso/trilha2/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ccodebasico/es/curso/trilha2/" hreflang="es" rel="alternate"/></head>
-<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="./" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="../../en/curso/trilha2/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="../../es/curso/trilha2/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha2/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha2/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
 <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
 <div class="flex items-center gap-3 min-w-0">
@@ -64,12 +64,12 @@
 </div>
 <div class="flex items-center gap-1.5 flex-wrap">
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-emerald-400 transition" href="../trilha1/">T1 Básico</a>
-<a class="text-xs px-2.5 py-1.5 rounded-lg bg-blue-500/20 text-blue-400 border border-blue-500/30 font-medium" href="../trilha2/">T2 Do Zero</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-blue-500/20 text-blue-400 border border-blue-500/30 font-medium" href="../trilha2/">T2 Desde cero</a>
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-purple-400 transition hidden sm:inline" href="../trilha3/">T3 Contexto</a>
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-amber-400 transition hidden md:inline" href="../trilha4/">T4 Skills</a>
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-teal-400 transition hidden md:inline" href="../trilha5/">T5 MCP</a>
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-rose-400 transition hidden lg:inline" href="../trilha6/">T6 Agentes</a>
-<button aria-label="Alternar tema" class="w-8 h-8 rounded-lg bg-dark-700 hover:bg-dark-600 flex items-center justify-center transition text-neutral-400" onclick="toggleTheme()">
+<button aria-label="Cambiar tema" class="w-8 h-8 rounded-lg bg-dark-700 hover:bg-dark-600 flex items-center justify-center transition text-neutral-400" onclick="toggleTheme()">
 <svg class="w-4 h-4 hidden" fill="currentColor" id="icon-sun" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
 <svg class="w-4 h-4" fill="currentColor" id="icon-moon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
 </button>
@@ -80,18 +80,18 @@
 <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 items-center">
 <div>
-<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4 border border-blue-500/30">TRILHA 2</span>
-<h1 class="text-3xl sm:text-4xl font-black mb-3">🔵 Construindo do Zero</h1>
-<p class="text-neutral-300 text-lg mb-6 max-w-2xl">A série dia-a-dia do canal, do primeiro app ao planejador de workflows e projetos reais. Aprenda fazendo: plano enxuto, fases com checklist e construção guiada.</p>
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4 border border-blue-500/30">RUTA 2</span>
+<h1 class="text-3xl sm:text-4xl font-black mb-3">🔵 Construyendo desde Cero</h1>
+<p class="text-neutral-300 text-lg mb-6 max-w-2xl">La serie día a día del canal, desde la primera app hasta el planificador de workflows y proyectos reales. Aprende haciendo: plan conciso, fases con checklist y construcción guiada.</p>
 <div class="flex flex-wrap gap-4 text-sm">
 <span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-blue-400"></span>7 módulos</span>
 <span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-blue-400"></span>~50 minutos</span>
-<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-blue-400"></span>Mão na massa</span>
+<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-blue-400"></span>Manos a la obra</span>
 </div>
 </div>
 <!-- HERO SVG: escada Dia 1 → Dia N -->
 <div class="rounded-2xl border border-blue-500/30 bg-dark-900/40 p-4 overflow-hidden">
-<svg aria-label="Escada de progresso: Dia 1 ao Dia 13, do primeiro app a projetos reais" class="w-full h-auto" font-family="Inter,sans-serif" role="img" viewbox="0 0 640 220" xmlns="http://www.w3.org/2000/svg">
+<svg aria-label="Escalera de progreso: del Día 1 al Día 13, de la primera app a proyectos reales" class="w-full h-auto" font-family="Inter,sans-serif" role="img" viewbox="0 0 640 220" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <lineargradient id="t2-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#60a5fa"></stop><stop offset="1" stop-color="#3b82f6"></stop></lineargradient>
 <filter height="180%" id="t2-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.6"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
@@ -99,14 +99,14 @@
 </defs>
 <rect fill="url(#t2-grid)" height="220" width="640"></rect>
 <!-- degraus -->
-<g class="wf-a"><rect fill="#1e293b" height="30" rx="6" stroke="#60a5fa" stroke-width="1.5" width="92" x="40" y="158"></rect><text fill="#60a5fa" font-size="9" font-weight="600" text-anchor="middle" x="86" y="177">Dia 1–2</text></g>
-<g class="wf-a"><rect fill="#1e293b" height="30" rx="6" stroke="#60a5fa" stroke-width="1.5" width="92" x="150" y="126"></rect><text fill="#60a5fa" font-size="9" font-weight="600" text-anchor="middle" x="196" y="145">Dia 3 · Flow</text></g>
-<g class="wf-a"><rect fill="#1e293b" height="30" rx="6" stroke="#60a5fa" stroke-width="1.5" width="92" x="260" y="94"></rect><text fill="#60a5fa" font-size="9" font-weight="600" text-anchor="middle" x="306" y="113">Dia 4–5</text></g>
-<g class="wf-a"><rect fill="#1e293b" height="30" rx="6" stroke="#60a5fa" stroke-width="1.5" width="92" x="370" y="62"></rect><text fill="#38bdf8" font-size="9" font-weight="600" text-anchor="middle" x="416" y="81">Dia 6–11</text></g>
+<g class="wf-a"><rect fill="#1e293b" height="30" rx="6" stroke="#60a5fa" stroke-width="1.5" width="92" x="40" y="158"></rect><text fill="#60a5fa" font-size="9" font-weight="600" text-anchor="middle" x="86" y="177">Día 1–2</text></g>
+<g class="wf-a"><rect fill="#1e293b" height="30" rx="6" stroke="#60a5fa" stroke-width="1.5" width="92" x="150" y="126"></rect><text fill="#60a5fa" font-size="9" font-weight="600" text-anchor="middle" x="196" y="145">Día 3 · Flow</text></g>
+<g class="wf-a"><rect fill="#1e293b" height="30" rx="6" stroke="#60a5fa" stroke-width="1.5" width="92" x="260" y="94"></rect><text fill="#60a5fa" font-size="9" font-weight="600" text-anchor="middle" x="306" y="113">Día 4–5</text></g>
+<g class="wf-a"><rect fill="#1e293b" height="30" rx="6" stroke="#60a5fa" stroke-width="1.5" width="92" x="370" y="62"></rect><text fill="#38bdf8" font-size="9" font-weight="600" text-anchor="middle" x="416" y="81">Día 6–11</text></g>
 <!-- topo: projeto real -->
 <rect fill="url(#t2-grad)" filter="url(#t2-glow)" height="46" rx="10" width="128" x="478" y="28"></rect>
-<text fill="#0b1220" font-size="11" font-weight="700" text-anchor="middle" x="542" y="48">🚀 Projeto Real</text>
-<text fill="#1e3a8a" font-size="8" text-anchor="middle" x="542" y="63">app completo no ar</text>
+<text fill="#0b1220" font-size="11" font-weight="700" text-anchor="middle" x="542" y="48">🚀 Proyecto real</text>
+<text fill="#1e3a8a" font-size="8" text-anchor="middle" x="542" y="63">app completa en funcionamiento</text>
 <!-- linha conectora -->
 <path d="M86,158 L196,126 L306,94 L416,62 L478,51" fill="none" opacity="0.6" stroke="#3b82f6" stroke-dasharray="4 3" stroke-width="1.6"></path>
 </svg>
@@ -116,67 +116,67 @@
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 <!-- MAPA DA TRILHA (OBRIGATÓRIO) -->
 <section class="mb-12" id="mapa-da-trilha">
-<h2 class="text-2xl font-bold mb-6">Mapa da trilha</h2>
+<h2 class="text-2xl font-bold mb-6">Mapa de la ruta</h2>
 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-1">
 <div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.1</span><span class="text-xs text-neutral-500">~8 min</span></div>
-<div class="font-semibold text-sm mb-1">🏗️ Começando do Zero</div>
-<p class="text-xs text-neutral-400">Dia 1–2 · plano enxuto, Lovable</p>
+<div class="font-semibold text-sm mb-1">🏗️ Empezando desde cero</div>
+<p class="text-xs text-neutral-400">Día 1–2 · plan sencillo, Lovable</p>
 </a>
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-2">
 <div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.2</span><span class="text-xs text-neutral-500">~8 min</span></div>
 <div class="font-semibold text-sm mb-1">🐝 Claude Flow — Swarms</div>
-<p class="text-xs text-neutral-400">Dia 3 · enxames de agentes</p>
+<p class="text-xs text-neutral-400">Día 3 · enjambres de agentes</p>
 </a>
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-3">
 <div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.3</span><span class="text-xs text-neutral-500">~7 min</span></div>
-<div class="font-semibold text-sm mb-1">🔧 Planejador de Workflows</div>
-<p class="text-xs text-neutral-400">Dia 4–5 · construindo a ferramenta</p>
+<div class="font-semibold text-sm mb-1">🔧 Planificador de workflows</div>
+<p class="text-xs text-neutral-400">Día 4–5 · construyendo la herramienta</p>
 </a>
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-4">
 <div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.4</span><span class="text-xs text-neutral-500">~8 min</span></div>
-<div class="font-semibold text-sm mb-1">🔌 MCPs no Projeto</div>
-<p class="text-xs text-neutral-400">Dia 6–9 · Supabase, 21st.dev</p>
+<div class="font-semibold text-sm mb-1">🔌 MCP en el proyecto</div>
+<p class="text-xs text-neutral-400">Día 6–9 · Supabase, 21st.dev</p>
 </a>
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-5">
 <div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.5</span><span class="text-xs text-neutral-500">~6 min</span></div>
-<div class="font-semibold text-sm mb-1">📊 Dashboard e GPTs</div>
-<p class="text-xs text-neutral-400">Dia 10–11 · interfaces e bots</p>
+<div class="font-semibold text-sm mb-1">📊 Dashboard y GPTs</div>
+<p class="text-xs text-neutral-400">Día 10–11 · interfaces y bots</p>
 </a>
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-6">
 <div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.6</span><span class="text-xs text-neutral-500">~6 min</span></div>
-<div class="font-semibold text-sm mb-1">⚡ Substituindo Superapps</div>
-<p class="text-xs text-neutral-400">Dia 13 · ferramentas sob medida</p>
+<div class="font-semibold text-sm mb-1">⚡ Reemplazando superapps</div>
+<p class="text-xs text-neutral-400">Día 13 · herramientas a medida</p>
 </a>
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-7">
 <div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.7</span><span class="text-xs text-neutral-500">~7 min</span></div>
-<div class="font-semibold text-sm mb-1">🐎 Projetos de Exemplo</div>
-<p class="text-xs text-neutral-400">Leilão de cavalos · sistema PETS</p>
+<div class="font-semibold text-sm mb-1">🐎 Proyectos de ejemplo</div>
+<p class="text-xs text-neutral-400">Subasta de caballos · sistema PETS</p>
 </a>
 </div>
 </section>
-<h2 class="text-2xl font-bold mb-6">Conteúdo detalhado</h2>
+<h2 class="text-2xl font-bold mb-6">Contenido detallado</h2>
 <!-- Módulo 2.1 -->
 <div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-2-1">
 <button aria-controls="exp-2-1" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
 <span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.1</span>
 <span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">Começando do Zero (Dia 1–2)</h2>
-<p class="text-sm text-neutral-400 mt-0.5">plano enxuto · fases com checklist · ponte Lovable → Claude Code</p>
+<h2 class="text-xl font-bold">Empezar desde Cero (Día 1–2)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">plan conciso · fases con checklist · puente Lovable → Claude Code</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
 <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-2-1">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">O ponto de partida da série: construir um app real do zero com o Claude Code. A regra de ouro do Dia 1 — <strong>descreva o QUE, não o COMO</strong>. Um plano <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">.md</code> enxuto vale mais que travar bibliotecas cedo demais.</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">A maioria trava porque dá detalhe técnico de mais ("use Framer Motion X") em vez de requisito ("cards com hover suave"). Definir requisitos visuais/UX e deixar o Claude escolher as libs reduz alucinação e retrabalho. Quem vem do Lovable migra o projeto e ganha controle real do código.</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Fluxo de fases (com checklist)</h3>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">El punto de partida de la serie: crear una aplicación real desde cero con Claude Code. La regla de oro del Día 1 — <strong>describe QUÉ, no CÓMO</strong>. Un plan <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">.md</code> mantenerlo ligero vale más que fijar bibliotecas demasiado pronto.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">La mayoría se atasca porque da demasiados detalles técnicos ("usa Framer Motion X") en vez de requisitos ("tarjetas con hover suave"). Definir requisitos visuales/de UX y dejar que Claude elija las bibliotecas reduce las alucinaciones y el retrabajo. Quien viene de Lovable migra el proyecto y obtiene control real del código.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Flujo por fases (con checklist)</h3>
 <div class="space-y-2">
-<div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-xs text-blue-400 font-bold flex-shrink-0">1</span><p class="text-sm text-neutral-300">Plano <code class="text-amber-400 font-mono text-xs">.md</code> enxuto: o quê, não o como — ative o <strong>modo plano</strong> (Shift+Tab) antes de editar</p></div>
-<div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-xs text-blue-400 font-bold flex-shrink-0">2</span><p class="text-sm text-neutral-300">Construa por fases curtas; cada fase termina com: <strong>build ok · screenshot · commit · resumo em 5 linhas</strong></p></div>
-<div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-xs text-blue-400 font-bold flex-shrink-0">3</span><p class="text-sm text-neutral-300">Quebrou "do nada"? Rode um <code class="text-amber-400 font-mono text-xs">git diff</code> do último estado bom e isole por bissecção</p></div>
+<div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-xs text-blue-400 font-bold flex-shrink-0">1</span><p class="text-sm text-neutral-300">Plan <code class="text-amber-400 font-mono text-xs">.md</code> breve: el qué, no el cómo; activa el <strong>modo de planificación</strong> (Shift+Tab) antes de editar</p></div>
+<div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-xs text-blue-400 font-bold flex-shrink-0">2</span><p class="text-sm text-neutral-300">Construye en fases cortas; cada fase termina con: <strong>build ok · screenshot · commit · resumen en 5 líneas</strong></p></div>
+<div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-xs text-blue-400 font-bold flex-shrink-0">3</span><p class="text-sm text-neutral-300">¿Se rompió "de la nada"? Ejecuta un <code class="text-amber-400 font-mono text-xs">git diff</code> del último estado bueno y aísla por bisección</p></div>
 </div>
 <pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mt-3"># script de resgate no package.json
 "rescue": "rimraf node_modules .next dist &amp;&amp; npm i"</pre>
@@ -190,17 +190,17 @@
 <span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.2</span>
 <span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">Claude Flow — Enxames de Agentes (Dia 3)</h2>
-<p class="text-sm text-neutral-400 mt-0.5">swarm vs hive mind · npx claude-flow@alpha · agentes concorrentes</p>
+<h2 class="text-xl font-bold">Claude Flow — Enjambres de Agentes (Día 3)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">swarm vs hive mind · npx claude-flow@alpha · agentes concurrentes</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
 <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-2-2">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">O <strong>Claude Flow</strong> é um framework para rodar <em>enxames de agentes</em> (agent swarms) que trabalham em paralelo. Duas arquiteturas: <strong>Swarm</strong> (agentes independentes em paralelo) e <strong>Hive Mind</strong> (memória compartilhada entre eles).</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Dividir um build em agentes concorrentes (UI, API, storage, testes) acelera muito — mas só funciona com <strong>plano e checklist de validação</strong>. A diferença entre "vibe coder" (itera sem plano) e "engenheiro agentic" (processo + arquitetura) é o que gera sistema funcional, não simulação.</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Comandos e hacks</h3>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">O <strong>Claude Flow</strong> es un framework para ejecutar <em>enjambres de agentes</em> (enjambres de agentes) que trabajan en paralelo. Dos arquitecturas: <strong>Swarm</strong> (agentes independientes en paralelo) y <strong>Hive Mind</strong> (memoria compartida entre ellos).</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Dividir una construcción entre agentes que trabajan en paralelo (UI, API, almacenamiento, pruebas) la acelera mucho, pero solo funciona con <strong>plan y checklist de validación</strong>. La diferencia entre «vibe coder» (itera sin un plan) e «ingeniero agéntico» (proceso + arquitectura) es lo que genera un sistema funcional, no una simulación.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Comandos y trucos</h3>
 <pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mb-3">npx claude-flow@alpha init --force      # inicializa o Flow
 # rode o swarm com UI interativa:
 claude-flow swarm "..." --cloud
@@ -209,13 +209,13 @@ claude mcp list --debug
 claude mcp remove FlowNexus
 claude mcp add FlowNexus "npx -y flow-nexus mcp"</pre>
 <div class="grid sm:grid-cols-2 gap-3">
-<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">⚡ Produtividade</div><p class="text-xs text-neutral-400">Aliases no terminal (ex.: <code class="text-amber-400 font-mono">dsp</code>) pra não digitar comandos longos</p></div>
-<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">🏛️ Arquitetura</div><p class="text-xs text-neutral-400">Supabase Realtime no lugar de Redis; Vite.js pra protótipo rápido</p></div>
-<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">🍎 macOS</div><p class="text-xs text-neutral-400">Adicione <code class="text-amber-400 font-mono">-y</code> ao <code class="text-amber-400 font-mono">npx</code> pra resolver path/permissão</p></div>
-<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">✅ Validação</div><p class="text-xs text-neutral-400">Peça documentar antes de implementar; checklist antes do build final</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">⚡ Productividad</div><p class="text-xs text-neutral-400">Aliases en la terminal (p. ej., <code class="text-amber-400 font-mono">dsp</code>) para no escribir comandos largos</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">🏛️ Arquitectura</div><p class="text-xs text-neutral-400">Supabase Realtime en lugar de Redis; Vite.js para prototipos rápidos</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">🍎 macOS</div><p class="text-xs text-neutral-400">Agrega <code class="text-amber-400 font-mono">-y</code> a <code class="text-amber-400 font-mono">npx</code> para resolver problemas de rutas y permisos</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">✅ Validación</div><p class="text-xs text-neutral-400">Pide documentar antes de implementar; checklist antes de la compilación final</p></div>
 </div>
 </div>
-<div class="rounded-xl bg-amber-500/5 border border-amber-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-amber-400 font-semibold">💡 Dica:</span> Supabase local em dev economiza custo, e políticas <strong>RLS</strong> + links assinados/expirados evitam vazar dados em links públicos.</p></div>
+<div class="rounded-xl bg-amber-500/5 border border-amber-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-amber-400 font-semibold">💡 Consejo:</span> Usar Supabase local en desarrollo reduce costos, y las políticas <strong>RLS</strong> + los enlaces firmados o vencidos evitan filtrar datos en enlaces públicos.</p></div>
 </div>
 </div>
 </div>
@@ -225,18 +225,18 @@ claude mcp add FlowNexus "npx -y flow-nexus mcp"</pre>
 <span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.3</span>
 <span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">Planejador de Workflows (Dia 4–5)</h2>
-<p class="text-sm text-neutral-400 mt-0.5">construindo uma ferramenta de verdade · iterando em cima da base</p>
+<h2 class="text-xl font-bold">Planificador de workflows (Día 4–5)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">construyendo una herramienta de verdad · iterando sobre la base</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~7 min</span>
 <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-2-3">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">Dos Dias 4 e 5: construir um <strong>planejador de fluxos de trabalho</strong> — uma ferramenta com UI, persistência e lógica — e depois iterar com "grandes atualizações" em cima da base estável.</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">É o salto do "app de demonstração" para uma ferramenta que você usaria. Mostra como <strong>evoluir um projeto existente</strong> sem quebrar o que já funciona — commits por fase, base sempre verde, e atualizações grandes feitas com plano.</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Padrão de evolução</h3>
-<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Etapa</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">O que fazer</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Base</td><td class="px-4 py-2 text-neutral-300">CRUD + UI mínima funcionando, commitado</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Plano</td><td class="px-4 py-2 text-neutral-300">Modo plano (Shift+Tab) pra desenhar a "grande atualização"</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Iterar</td><td class="px-4 py-2 text-neutral-300">Uma feature por vez, build verde a cada passo</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Resgate</td><td class="px-4 py-2 text-neutral-300">Diff/bissecção quando algo regredir</td></tr></tbody></table></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">De los Días 4 y 5: construir un <strong>planificador de flujos de trabajo</strong> — una herramienta con UI, persistencia y lógica — y luego iterar con «grandes actualizaciones» sobre una base estable.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Es el salto de la «app de demostración» a una herramienta que tú usarías. Muestra cómo <strong>evolucionar un proyecto existente</strong> sin romper lo que ya funciona: commits por fase, una base siempre estable y actualizaciones grandes hechas con un plan.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Patrón de evolución</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Etapa</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Qué hacer</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Base</td><td class="px-4 py-2 text-neutral-300">CRUD + UI mínima funcionando, con commit</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Plan</td><td class="px-4 py-2 text-neutral-300">Modo de plan (Shift+Tab) para diseñar la "gran actualización"</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Iterar</td><td class="px-4 py-2 text-neutral-300">Una funcionalidad a la vez, build en verde en cada paso</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Rescate</td><td class="px-4 py-2 text-neutral-300">Diff/bisección cuando algo regrese</td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -247,24 +247,24 @@ claude mcp add FlowNexus "npx -y flow-nexus mcp"</pre>
 <span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.4</span>
 <span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">MCPs no Projeto (Dia 6–9)</h2>
-<p class="text-sm text-neutral-400 mt-0.5">Supabase MCP · 21st.dev · conectar ferramentas externas</p>
+<h2 class="text-xl font-bold">MCP en el proyecto (día 6–9)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">Supabase MCP · 21st.dev · conectar herramientas externas</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
 <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-2-4">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">A partir do Dia 6, o projeto ganha <strong>MCP servers</strong> — o protocolo que dá ferramentas externas ao Claude. <strong>Supabase MCP</strong> (banco/auth/storage) e <strong>21st.dev MCP</strong> (componentes de UI "magic") aparecem na série.</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Com MCP, o Claude consulta o schema do banco real, cria tabelas e gera UI a partir de bibliotecas de componentes — sem você sair do terminal. É o que transforma um protótipo num app conectado. (A trilha 5 aprofunda MCP.)</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Adicionar um MCP</h3>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">A partir del Día 6, el proyecto gana <strong>Servidores MCP</strong> — el protocolo que proporciona herramientas externas a Claude. <strong>Supabase MCP</strong> (banco/auth/storage) y <strong>21st.dev MCP</strong> (componentes de UI "mágicos") aparecen en la serie.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Con MCP, Claude consulta el esquema de la base de datos real, crea tablas y genera la UI a partir de bibliotecas de componentes, sin que tengas que salir de la terminal. Es lo que transforma un prototipo en una app conectada. (La ruta 5 profundiza en MCP.)</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Agregar un MCP</h3>
 <pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mb-3"># listar / adicionar / remover MCP servers
 claude mcp list
 claude mcp add supabase "npx -y @supabase/mcp-server"
 claude mcp add magic "npx -y @21st-dev/magic"
 # dentro da sessão:
 /mcp                       # ver status dos servers conectados</pre>
-<div class="rounded-xl bg-blue-500/5 border border-blue-500/20 p-4"><p class="text-sm text-neutral-300"><span class="text-blue-400 font-semibold">Padrão:</span> conecte o MCP, peça pro Claude "leia o schema atual" antes de gerar código, e configure <strong>RLS</strong> no Supabase antes de qualquer link público.</p></div>
+<div class="rounded-xl bg-blue-500/5 border border-blue-500/20 p-4"><p class="text-sm text-neutral-300"><span class="text-blue-400 font-semibold">Patrón:</span> conecta el MCP, pídele a Claude «lee el esquema actual» antes de generar código y configura <strong>RLS</strong> en Supabase antes de cualquier enlace público.</p></div>
 </div>
 </div>
 </div>
@@ -275,21 +275,21 @@ claude mcp add magic "npx -y @21st-dev/magic"
 <span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.5</span>
 <span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">Dashboard e GPTs (Dia 10–11)</h2>
-<p class="text-sm text-neutral-400 mt-0.5">interfaces de dados · construindo GPTs customizados</p>
+<h2 class="text-xl font-bold">Dashboard y GPTs (Día 10–11)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">interfaces de datos · creación de GPTs personalizados</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~6 min</span>
 <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-2-5">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">Dia 10 constrói um <strong>dashboard</strong> (visualização de dados com gráficos e métricas); Dia 11 mostra como o Claude Code ajuda a montar <strong>GPTs</strong> / assistentes customizados a partir do seu conteúdo.</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Dashboard é o caso de uso que mais aparece em produto real — e um ótimo exercício de UI + dados. Já os GPTs mostram o Claude Code como ferramenta de <em>autoria</em>: ele estrutura instruções, base de conhecimento e fluxo do bot.</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Receita do dashboard</h3>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">El Día 10 construye un <strong>dashboard</strong> (visualización de datos con gráficos y métricas); el Día 11 muestra cómo Claude Code ayuda a crear <strong>GPTs</strong> / asistentes personalizados a partir de tu contenido.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Dashboard es el caso de uso que más aparece en productos reales y un excelente ejercicio de UI + datos. Los GPTs muestran Claude Code como herramienta de <em>autoría</em>: estructura las instrucciones, la base de conocimiento y el flujo del bot.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Receta del dashboard</h3>
 <div class="grid sm:grid-cols-3 gap-3">
-<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">1 · Dados</div><p class="text-xs text-neutral-400">Fonte real (API/Supabase), não mock</p></div>
-<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">2 · Layout</div><p class="text-xs text-neutral-400">Cards de métrica + gráficos; descreva UX</p></div>
-<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">3 · Refino</div><p class="text-xs text-neutral-400">Screenshot → ajuste → commit por fase</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">1 · Datos</div><p class="text-xs text-neutral-400">Fuente real (API/Supabase), no un mock</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">2 · Layout</div><p class="text-xs text-neutral-400">Tarjetas de métricas + gráficos; describe la UX</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">3 · Refinamiento</div><p class="text-xs text-neutral-400">Captura de pantalla → ajuste → commit por fase</p></div>
 </div>
 </div>
 </div>
@@ -301,20 +301,20 @@ claude mcp add magic "npx -y @21st-dev/magic"
 <span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.6</span>
 <span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">6</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">Substituindo Superapps (Dia 13)</h2>
-<p class="text-sm text-neutral-400 mt-0.5">ferramentas sob medida no lugar de SaaS caro</p>
+<h2 class="text-xl font-bold">Reemplazando superapps (Día 13)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">herramientas a medida en lugar de un SaaS costoso</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~6 min</span>
 <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-2-6">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">Dia 13 vira a chave: em vez de pagar vários "superapps"/SaaS, você <strong>constrói a ferramenta sob medida</strong> com o Claude Code — exatamente com as features que usa, sem o resto.</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">É a tese econômica do curso: muito do que você assina pode virar um app pequeno e próprio. Você controla os dados, paga só a infra, e ajusta quando quiser. O Claude Code derruba o custo de "fazer o seu".</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Quando vale substituir</h3>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">El Día 13 cambia el enfoque: en vez de pagar por varios «superapps»/SaaS, tú <strong>construye la herramienta a medida</strong> con Claude Code — exactamente con las funciones que usas, sin lo demás.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Es la tesis económica del curso: mucho de lo que pagas por suscripción puede convertirse en una pequeña app propia. Controlas los datos, pagas solo la infraestructura y lo ajustas cuando quieras. Claude Code reduce el costo de «hacerlo tú».</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Cuándo conviene sustituirlo</h3>
 <div class="grid sm:grid-cols-2 gap-3">
-<div class="bg-dark-700/40 border border-emerald-500/30 rounded-xl p-3"><div class="text-xs font-bold text-emerald-400 mb-1">✓ Vale</div><p class="text-xs text-neutral-400">Uso simples e repetido, dados seus, integração com seu stack</p></div>
-<div class="bg-dark-700/40 border border-red-500/30 rounded-xl p-3"><div class="text-xs font-bold text-red-400 mb-1">✗ Não vale</div><p class="text-xs text-neutral-400">Compliance pesado, escala enorme, features que mudam toda semana</p></div>
+<div class="bg-dark-700/40 border border-emerald-500/30 rounded-xl p-3"><div class="text-xs font-bold text-emerald-400 mb-1">✓ Cuenta</div><p class="text-xs text-neutral-400">Uso sencillo y repetido, tus datos, integración con tu stack</p></div>
+<div class="bg-dark-700/40 border border-red-500/30 rounded-xl p-3"><div class="text-xs font-bold text-red-400 mb-1">✗ No cuenta</div><p class="text-xs text-neutral-400">Mucho cumplimiento normativo, escala enorme, funciones que cambian cada semana</p></div>
 </div>
 </div>
 </div>
@@ -326,27 +326,27 @@ claude mcp add magic "npx -y @21st-dev/magic"
 <span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.7</span>
 <span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">7</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">Projetos de Exemplo</h2>
-<p class="text-sm text-neutral-400 mt-0.5">leilão de cavalos · sistema PETS · app completo do zero</p>
+<h2 class="text-xl font-bold">Proyectos de ejemplo</h2>
+<p class="text-sm text-neutral-400 mt-0.5">subasta de caballos · sistema PETS · app completa desde cero</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~7 min</span>
 <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-2-7">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">Dois projetos completos guiados na comunidade: um <strong>leilão de cavalos</strong> e um <strong>sistema PETS</strong> (cadastro/gestão). Do schema do banco à UI, mostrando o fluxo ponta a ponta.</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Ver um app inteiro nascer — modelagem de dados, telas, regras de negócio — consolida tudo das trilhas anteriores. São bons "projetos-âncora" pra você refazer com o seu próprio tema.</p></div>
-<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Anatomia dos dois projetos</h3>
-<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Camada</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">🐎 Leilão</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">🐾 PETS</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Dados</td><td class="px-4 py-2 text-neutral-300">lotes, lances, usuários</td><td class="px-4 py-2 text-neutral-300">tutores, pets, atendimentos</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Regra</td><td class="px-4 py-2 text-neutral-300">lance mínimo, tempo de leilão</td><td class="px-4 py-2 text-neutral-300">agenda, histórico, vacinas</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">UI</td><td class="px-4 py-2 text-neutral-300">listagem + tela de lance ao vivo</td><td class="px-4 py-2 text-neutral-300">ficha do pet + dashboard</td></tr></tbody></table></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">Dos proyectos completos guiados en la comunidad: uno <strong>subasta de caballos</strong> y un <strong>sistema PETS</strong> (registro/gestión). Desde el schema de la base de datos hasta la UI, mostrando el flujo de punta a punta.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Ver cómo nace una app completa — modelado de datos, pantallas, reglas de negocio — consolida todo lo de las rutas anteriores. Son buenos «proyectos ancla» para que los rehagas con tu propio tema.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Anatomía de los dos proyectos</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Capa</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">🐎 Subasta</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">🐾 PETS</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Datos</td><td class="px-4 py-2 text-neutral-300">lotes, ofertas, usuarios</td><td class="px-4 py-2 text-neutral-300">tutores, mascotas, servicios de atención</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Regla</td><td class="px-4 py-2 text-neutral-300">puja mínima, tiempo de subasta</td><td class="px-4 py-2 text-neutral-300">agenda, historial, vacunas</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">UI</td><td class="px-4 py-2 text-neutral-300">listado + pantalla de oferta en vivo</td><td class="px-4 py-2 text-neutral-300">ficha de la mascota + dashboard</td></tr></tbody></table></div>
 </div>
-<div class="rounded-xl bg-amber-500/5 border border-amber-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-amber-400 font-semibold">💡 Próximo passo:</span> pegue a estrutura desses exemplos e troque o domínio pelo seu. Mesmo esqueleto, conteúdo diferente — é o jeito mais rápido de aprender.</p></div>
+<div class="rounded-xl bg-amber-500/5 border border-amber-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-amber-400 font-semibold">💡 Siguiente paso:</span> toma la estructura de estos ejemplos y cambia el dominio por el tuyo. El mismo esqueleto, contenido diferente: es la forma más rápida de aprender.</p></div>
 </div>
 </div>
 </div>
 <!-- Navigation -->
 <div class="flex items-center justify-between mt-10 pt-8 border-t border-dark-700">
-<a class="text-sm text-neutral-400 hover:text-neutral-200 transition flex items-center gap-2" href="../../">← Início</a>
-<a class="text-sm text-purple-400 hover:text-purple-300 transition flex items-center gap-2" href="../trilha3/">Próxima: T3 Contexto &amp; Comandos →</a>
+<a class="text-sm text-neutral-400 hover:text-neutral-200 transition flex items-center gap-2" href="../../">← Inicio</a>
+<a class="text-sm text-purple-400 hover:text-purple-300 transition flex items-center gap-2" href="../trilha3/">Siguiente: T3 Contexto y comandos →</a>
 </div>
 </div>
 <footer class="border-t border-dark-700 py-10 px-4 mt-8">
@@ -357,7 +357,7 @@ claude mcp add magic "npx -y @21st-dev/magic"
 <a class="text-sky-400 hover:text-sky-300 text-sm" href="https://inema.club" target="_blank">INEMA.CLUB</a>
 </div>
 <p class="text-sm text-neutral-500">Canal <a class="text-blue-400 hover:text-blue-300" href="https://t.me/c/3012468959" target="_blank">Claude Code (INEMA)</a> · 2026</p>
-<p class="text-xs text-neutral-600">Curado da comunidade · INEMA.CLUB</p>
+<p class="text-xs text-neutral-600">Seleccionado de la comunidad · INEMA.CLUB</p>
 </div>
 </footer>
 <script>

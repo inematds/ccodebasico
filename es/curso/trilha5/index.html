@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="pt-BR">
+<html class="dark" lang="es">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Trilha 5 — MCP &amp; Integrações | Claude Code Básico | INEMA.CLUB</title>
+<title>Ruta 5 — MCP e integraciones | Claude Code Básico | INEMA.CLUB</title>
 <meta content="ccodebasico" name="inema-course"/>
 <script>
     try {
@@ -54,7 +54,7 @@
     }
   </style>
 <link href="https://inematds.github.io/ccodebasico/curso/trilha5/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ccodebasico/en/curso/trilha5/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ccodebasico/es/curso/trilha5/" hreflang="es" rel="alternate"/></head>
-<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="./" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="../../en/curso/trilha5/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="../../es/curso/trilha5/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha5/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha5/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
 <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
 <div class="flex items-center gap-3 min-w-0">
@@ -64,12 +64,12 @@
 </div>
 <div class="flex items-center gap-1.5 flex-wrap">
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-emerald-400 transition" href="../trilha1/">T1 Básico</a>
-<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-blue-400 transition" href="../trilha2/">T2 Do Zero</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-blue-400 transition" href="../trilha2/">T2 Desde cero</a>
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-purple-400 transition hidden sm:inline" href="../trilha3/">T3 Contexto</a>
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-amber-400 transition hidden md:inline" href="../trilha4/">T4 Skills</a>
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-teal-500/20 text-teal-400 border border-teal-500/30 font-medium" href="../trilha5/">T5 MCP</a>
 <a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-rose-400 transition hidden lg:inline" href="../trilha6/">T6 Agentes</a>
-<button aria-label="Alternar tema" class="w-8 h-8 rounded-lg bg-dark-700 hover:bg-dark-600 flex items-center justify-center transition text-neutral-400" onclick="toggleTheme()">
+<button aria-label="Cambiar tema" class="w-8 h-8 rounded-lg bg-dark-700 hover:bg-dark-600 flex items-center justify-center transition text-neutral-400" onclick="toggleTheme()">
 <svg class="w-4 h-4 hidden" fill="currentColor" id="icon-sun" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
 <svg class="w-4 h-4" fill="currentColor" id="icon-moon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
 </button>
@@ -80,18 +80,18 @@
 <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 items-center">
 <div>
-<span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4 border border-teal-500/30">TRILHA 5</span>
-<h1 class="text-3xl sm:text-4xl font-black mb-3">🟢 MCP &amp; Integrações</h1>
-<p class="text-neutral-300 text-lg mb-6 max-w-2xl">Conecte o Claude Code ao mundo: servidores MCP (NotebookLM, Supabase, Firecrawl, Playwright), modelos alternativos e grátis (CCR, Ollama), Routines na nuvem e monitores de uso.</p>
+<span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4 border border-teal-500/30">RUTA 5</span>
+<h1 class="text-3xl sm:text-4xl font-black mb-3">🟢 MCP e integraciones</h1>
+<p class="text-neutral-300 text-lg mb-6 max-w-2xl">Conecta Claude Code con el mundo: servidores MCP (NotebookLM, Supabase, Firecrawl, Playwright), modelos alternativos y gratis (CCR, Ollama), Routines en la nube y monitores de uso.</p>
 <div class="flex flex-wrap gap-4 text-sm">
 <span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-teal-400"></span>6 módulos</span>
 <span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-teal-400"></span>~50 minutos</span>
-<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-teal-400"></span>Ferramentas externas</span>
+<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-teal-400"></span>Herramientas externas</span>
 </div>
 </div>
 <!-- HERO SVG: hub MCP -->
 <div class="rounded-2xl border border-teal-500/30 bg-dark-900/40 p-4 overflow-hidden">
-<svg aria-label="Claude Code no centro conectado por MCP a vários servidores externos: Supabase, Firecrawl, Playwright, NotebookLM e GitHub" class="w-full h-auto" font-family="Inter,sans-serif" role="img" viewbox="0 0 640 240" xmlns="http://www.w3.org/2000/svg">
+<svg aria-label="Claude Code en el centro, conectado mediante MCP a varios servidores externos: Supabase, Firecrawl, Playwright, NotebookLM y GitHub" class="w-full h-auto" font-family="Inter,sans-serif" role="img" viewbox="0 0 640 240" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <lineargradient id="t5-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#2dd4bf"></stop><stop offset="1" stop-color="#14b8a6"></stop></lineargradient>
 <filter height="180%" id="t5-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.7"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
@@ -122,62 +122,62 @@
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 <!-- MAPA DA TRILHA (OBRIGATÓRIO) -->
 <section class="mb-12" id="mapa-da-trilha">
-<h2 class="text-2xl font-bold mb-6">Mapa da trilha</h2>
+<h2 class="text-2xl font-bold mb-6">Mapa de la ruta</h2>
 <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-teal-500/40 p-4 transition block" href="#modulo-5-1">
 <div class="flex items-center justify-between mb-2"><span class="text-teal-400 text-sm font-bold">5.1</span><span class="text-xs text-neutral-500">~8 min</span></div>
-<div class="font-semibold text-sm mb-1">🔌 O que é MCP</div>
+<div class="font-semibold text-sm mb-1">🔌 Qué es MCP</div>
 <p class="text-xs text-neutral-400">claude mcp add · /mcp · servers</p>
 </a>
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-teal-500/40 p-4 transition block" href="#modulo-5-2">
 <div class="flex items-center justify-between mb-2"><span class="text-teal-400 text-sm font-bold">5.2</span><span class="text-xs text-neutral-500">~9 min</span></div>
-<div class="font-semibold text-sm mb-1">🧰 MCPs Essenciais</div>
+<div class="font-semibold text-sm mb-1">🧰 MCP esenciales</div>
 <p class="text-xs text-neutral-400">Supabase · Firecrawl · Playwright</p>
 </a>
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-teal-500/40 p-4 transition block" href="#modulo-5-3">
 <div class="flex items-center justify-between mb-2"><span class="text-teal-400 text-sm font-bold">5.3</span><span class="text-xs text-neutral-500">~8 min</span></div>
-<div class="font-semibold text-sm mb-1">🆓 Claude Code Grátis</div>
-<p class="text-xs text-neutral-400">CCR · Ollama · roteadores</p>
+<div class="font-semibold text-sm mb-1">🆓 Claude Code gratis</div>
+<p class="text-xs text-neutral-400">CCR · Ollama · enrutadores</p>
 </a>
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-teal-500/40 p-4 transition block" href="#modulo-5-4">
 <div class="flex items-center justify-between mb-2"><span class="text-teal-400 text-sm font-bold">5.4</span><span class="text-xs text-neutral-500">~9 min</span></div>
-<div class="font-semibold text-sm mb-1">⏰ Routines &amp; Agendamento</div>
-<p class="text-xs text-neutral-400">Nuvem · /loop · scheduled</p>
+<div class="font-semibold text-sm mb-1">⏰ Rutinas y programación</div>
+<p class="text-xs text-neutral-400">Nube · /loop · programado</p>
 </a>
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-teal-500/40 p-4 transition block" href="#modulo-5-5">
 <div class="flex items-center justify-between mb-2"><span class="text-teal-400 text-sm font-bold">5.5</span><span class="text-xs text-neutral-500">~7 min</span></div>
-<div class="font-semibold text-sm mb-1">📊 Monitores de Uso</div>
-<p class="text-xs text-neutral-400">tokens · agentes · terminais</p>
+<div class="font-semibold text-sm mb-1">📊 Monitores de uso</div>
+<p class="text-xs text-neutral-400">tokens · agentes · terminales</p>
 </a>
 <a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-teal-500/40 p-4 transition block" href="#modulo-5-6">
 <div class="flex items-center justify-between mb-2"><span class="text-teal-400 text-sm font-bold">5.6</span><span class="text-xs text-neutral-500">~7 min</span></div>
-<div class="font-semibold text-sm mb-1">🧬 Modelos &amp; Embeddings</div>
+<div class="font-semibold text-sm mb-1">🧬 Modelos y embeddings</div>
 <p class="text-xs text-neutral-400">Sonnet · Opus · Gemini embed</p>
 </a>
 </div>
 </section>
-<h2 class="text-2xl font-bold mb-6">Conteúdo detalhado</h2>
+<h2 class="text-2xl font-bold mb-6">Contenido detallado</h2>
 <!-- Módulo 5.1 -->
 <div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-5-1">
 <button aria-controls="exp-5-1" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
 <span class="text-teal-400 text-xs font-bold w-6 flex-shrink-0">5.1</span>
 <span class="w-8 h-8 rounded-full bg-teal-500/20 text-teal-400 border border-teal-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">O que é MCP (Model Context Protocol)</h2>
-<p class="text-sm text-neutral-400 mt-0.5">servers como ferramentas externas · claude mcp add · /mcp · escopos</p>
+<h2 class="text-xl font-bold">Qué es MCP (Model Context Protocol)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">servers como herramientas externas · claude mcp add · /mcp · alcances</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
 <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-5-1">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-teal-400 mb-2">🟢 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">O <strong>MCP (Model Context Protocol)</strong> é o "padrão USB" que conecta o Claude Code a ferramentas externas: bancos de dados, navegadores, APIs, docs. Cada <strong>servidor MCP</strong> expõe ferramentas que o Claude passa a poder usar — ler do Supabase, raspar um site, controlar o navegador.</p></div>
-<div><h3 class="text-base font-semibold text-teal-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Sem MCP, o Claude só enxerga seus arquivos. Com MCP, ele age no mundo: consulta seu banco real, abre páginas, pega dados ao vivo. É o que transforma o agente de "editor de código" em "operador de sistemas".</p></div>
-<div><h3 class="text-base font-semibold text-teal-400 mb-3">🔑 Como adicionar e onde vive</h3>
+<div><h3 class="text-base font-semibold text-teal-400 mb-2">🟢 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">O <strong>MCP (Model Context Protocol)</strong> es el «estándar USB» que conecta Claude Code con herramientas externas: bases de datos, navegadores, APIs, documentación. Cada <strong>servidor MCP</strong> expone herramientas que Claude puede usar, como leer datos de Supabase, extraer datos de un sitio o controlar el navegador.</p></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Sin MCP, Claude solo ve tus archivos. Con MCP, actúa en el mundo: consulta tu base de datos real, abre páginas y obtiene datos en vivo. Es lo que transforma al agente de «editor de código» en «operador de sistemas».</p></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-3">🔑 Cómo agregarlo y dónde vive</h3>
 <pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mb-3">claude mcp add firecrawl "npx -y firecrawl-mcp"   # adiciona um server
 claude mcp list                                    # lista os configurados
 /mcp                                               # painel dos servers na sessão</pre>
-<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Escopo</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Onde vale</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">local</td><td class="px-4 py-2 text-neutral-300">Só você, só este projeto</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">project</td><td class="px-4 py-2 text-neutral-300">Vai no <code class="text-amber-400">.mcp.json</code> (commit, todo o time)</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">user</td><td class="px-4 py-2 text-neutral-300">Você, em todos os projetos</td></tr></tbody></table></div>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Alcance</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Dónde conviene</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">local</td><td class="px-4 py-2 text-neutral-300">Solo tú, solo este proyecto</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">project</td><td class="px-4 py-2 text-neutral-300">Ve a <code class="text-amber-400">.mcp.json</code> (commit, todo el equipo)</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">user</td><td class="px-4 py-2 text-neutral-300">Tú, en todos los proyectos</td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -188,22 +188,22 @@ claude mcp list                                    # lista os configurados
 <span class="text-teal-400 text-xs font-bold w-6 flex-shrink-0">5.2</span>
 <span class="w-8 h-8 rounded-full bg-teal-500/20 text-teal-400 border border-teal-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">MCPs Essenciais</h2>
-<p class="text-sm text-neutral-400 mt-0.5">Supabase · Firecrawl · Playwright · NotebookLM — quando usar cada um</p>
+<h2 class="text-xl font-bold">MCP esenciales</h2>
+<p class="text-sm text-neutral-400 mt-0.5">Supabase · Firecrawl · Playwright · NotebookLM — cuándo usar cada uno</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~9 min</span>
 <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-5-2">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-teal-400 mb-2">🟢 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">Um punhado de servidores MCP resolve a maior parte dos casos: <strong>Supabase</strong> (banco), <strong>Firecrawl</strong> (raspar a web), <strong>Playwright</strong> (controlar o navegador) e <strong>NotebookLM</strong> (base de conhecimento). Todos entram com um <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">claude mcp add</code>.</p></div>
-<div><h3 class="text-base font-semibold text-teal-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Com o Supabase MCP o Claude lê e migra seu banco real sem você copiar schema; com Firecrawl ele pega conteúdo de qualquer site; com Playwright ele testa a UI clicando de verdade. É produtividade que não dá pra fingir com prompt.</p></div>
-<div><h3 class="text-base font-semibold text-teal-400 mb-3">🔑 Os mais úteis</h3>
-<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">MCP</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Para</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Adicionar</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">Supabase</td><td class="px-4 py-2 text-neutral-300">Banco, auth, migrações</td><td class="px-4 py-2 font-mono text-amber-400">@supabase/mcp-server-supabase</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">Firecrawl</td><td class="px-4 py-2 text-neutral-300">Raspar / indexar sites</td><td class="px-4 py-2 font-mono text-amber-400">firecrawl-mcp</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">Playwright</td><td class="px-4 py-2 text-neutral-300">Navegador, testes E2E</td><td class="px-4 py-2 font-mono text-amber-400">@playwright/mcp</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">NotebookLM</td><td class="px-4 py-2 text-neutral-300">Base de conhecimento</td><td class="px-4 py-2 font-mono text-amber-400">via server da comunidade</td></tr></tbody></table></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-2">🟢 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">Un puñado de servidores MCP resuelve la mayoría de los casos: <strong>Supabase</strong> (banco), <strong>Firecrawl</strong> (raspar la web), <strong>Playwright</strong> (controlar el navegador) y <strong>NotebookLM</strong> (base de conocimiento). Todos entran con un <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">claude mcp add</code>.</p></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Con Supabase MCP, Claude lee y migra tu base de datos real sin que tengas que copiar el esquema; con Firecrawl obtiene contenido de cualquier sitio; con Playwright prueba la UI haciendo clic de verdad. Es una productividad que no puedes fingir con un prompt.</p></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-3">🔑 Los más útiles</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">MCP</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Para</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Agregar</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">Supabase</td><td class="px-4 py-2 text-neutral-300">Base de datos, auth, migraciones</td><td class="px-4 py-2 font-mono text-amber-400">@supabase/mcp-server-supabase</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">Firecrawl</td><td class="px-4 py-2 text-neutral-300">Raspar / indexar sitios</td><td class="px-4 py-2 font-mono text-amber-400">firecrawl-mcp</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">Playwright</td><td class="px-4 py-2 text-neutral-300">Navegador, pruebas E2E</td><td class="px-4 py-2 font-mono text-amber-400">@playwright/mcp</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">NotebookLM</td><td class="px-4 py-2 text-neutral-300">Base de conocimiento</td><td class="px-4 py-2 font-mono text-amber-400">a través del server de la comunidad</td></tr></tbody></table></div>
 <pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mt-3">claude mcp add playwright "npx -y @playwright/mcp@latest"
 claude mcp add supabase "npx -y @supabase/mcp-server-supabase" -e SUPABASE_ACCESS_TOKEN=...</pre>
 </div>
-<div class="rounded-xl bg-teal-500/5 border border-teal-500/20 p-4"><p class="text-sm text-neutral-300"><span class="text-teal-400 font-semibold">Dica:</span> depois de adicionar, rode <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/mcp</code> pra confirmar que o server conectou (✓ verde) antes de pedir a tarefa.</p></div>
+<div class="rounded-xl bg-teal-500/5 border border-teal-500/20 p-4"><p class="text-sm text-neutral-300"><span class="text-teal-400 font-semibold">Consejo:</span> después de agregar, ejecuta <code class="bg-dark-900 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/mcp</code> para confirmar que el server se conectó (✓ verde) antes de pedir la tarea.</p></div>
 </div>
 </div>
 </div>
@@ -213,7 +213,7 @@ claude mcp add supabase "npx -y @supabase/mcp-server-supabase" -e SUPABASE_ACCES
 <span class="text-teal-400 text-xs font-bold w-6 flex-shrink-0">5.3</span>
 <span class="w-8 h-8 rounded-full bg-teal-500/20 text-teal-400 border border-teal-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">Claude Code Grátis / Mais Barato</h2>
+<h2 class="text-xl font-bold">Claude Code Gratis / Más Barato</h2>
 <p class="text-sm text-neutral-400 mt-0.5">CCR (claude-code-router) · Ollama local · ANTHROPIC_BASE_URL</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
@@ -221,9 +221,9 @@ claude mcp add supabase "npx -y @supabase/mcp-server-supabase" -e SUPABASE_ACCES
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-5-3">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-teal-400 mb-2">🟢 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">O Claude Code procura a chave em <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">ANTHROPIC_API_KEY</code> e a URL em <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">ANTHROPIC_BASE_URL</code>. Trocando essa URL por um <strong>roteador</strong> (CCR — <em>claude-code-router</em>) ou um servidor local (<strong>Ollama</strong>), dá pra rodar com outros modelos — inclusive de graça.</p></div>
-<div><h3 class="text-base font-semibold text-teal-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Para estudar, testar ou tarefas simples, você não precisa gastar tokens caros. CCR roteia para provedores gratuitos/baratos; Ollama roda modelos na sua máquina, offline. Mantém o fluxo do Claude Code, troca só o "motor".</p></div>
-<div><h3 class="text-base font-semibold text-teal-400 mb-3">🔑 As duas rotas</h3>
+<div><h3 class="text-base font-semibold text-teal-400 mb-2">🟢 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">Claude Code busca la clave en <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">ANTHROPIC_API_KEY</code> y la URL en <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">ANTHROPIC_BASE_URL</code>. Al cambiar esta URL por un <strong>enrutador</strong> (CCR — <em>claude-code-router</em>) o un servidor local (<strong>Ollama</strong>), puedes ejecutarlo con otros modelos, incluso gratis.</p></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Para estudiar, probar o hacer tareas sencillas, no necesitas gastar tokens caros. CCR dirige las solicitudes a proveedores gratuitos o económicos; Ollama ejecuta modelos en tu máquina, sin conexión. Mantiene el flujo de Claude Code y solo cambia el «motor».</p></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-3">🔑 Las dos rutas</h3>
 <div class="space-y-3">
 <div class="bg-dark-700/40 border border-dark-600 rounded-xl p-4"><div class="text-xs font-bold text-teal-400 mb-2 uppercase tracking-wider">CCR — claude-code-router</div><pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono">npm install -g @musistudio/claude-code-router
 ccr code        # abre o Claude Code roteado p/ outro provedor
@@ -233,7 +233,7 @@ export ANTHROPIC_BASE_URL="http://localhost:11434"
 claude   # usa o modelo local, offline</pre></div>
 </div>
 </div>
-<div class="rounded-xl bg-amber-500/5 border border-amber-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-amber-400 font-semibold">💡 Quando usar:</span> modelos locais/free são ótimos pra estudo e tarefas leves; para o trabalho sério, Sonnet/Opus oficiais entregam muito mais. Use cada um no seu lugar.</p></div>
+<div class="rounded-xl bg-amber-500/5 border border-amber-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-amber-400 font-semibold">💡 Cuándo usar:</span> los modelos locales/gratuitos son excelentes para estudiar y para tareas livianas; para el trabajo serio, Sonnet/Opus oficiales ofrecen mucho más. Usa cada uno para lo que corresponde.</p></div>
 </div>
 </div>
 </div>
@@ -243,21 +243,21 @@ claude   # usa o modelo local, offline</pre></div>
 <span class="text-teal-400 text-xs font-bold w-6 flex-shrink-0">5.4</span>
 <span class="w-8 h-8 rounded-full bg-teal-500/20 text-teal-400 border border-teal-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">Routines e Tarefas Agendadas</h2>
-<p class="text-sm text-neutral-400 mt-0.5">rotinas na nuvem · /loop local · scheduled tasks · limites</p>
+<h2 class="text-xl font-bold">Routines y tareas programadas</h2>
+<p class="text-sm text-neutral-400 mt-0.5">rutinas en la nube · /loop local · scheduled tasks · límites</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~9 min</span>
 <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-5-4">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-teal-400 mb-2">🟢 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">As <strong>Routines</strong> são automações que rodam <strong>na nuvem</strong> — sem deixar o PC ligado. Você define um prompt, um repositório GitHub, modelo e cadência; o disparo pode ser por <em>agendamento</em>, <em>API</em> ou <em>evento do GitHub</em>. Já o <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/loop</code> e as <em>scheduled tasks</em> rodam localmente.</p></div>
-<div><h3 class="text-base font-semibold text-teal-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">É o Claude virando membro da equipe que trabalha sozinho: revisa PRs, atualiza dependências, gera relatórios — em horário marcado, sem você. A pegadinha: o ambiente na nuvem é <strong>stateless</strong> e <strong>não enxerga seu <code class="text-amber-400">.env</code> local</strong>; segredos vão como variáveis de ambiente do cloud.</p></div>
-<div><h3 class="text-base font-semibold text-teal-400 mb-3">🔑 Local × Nuvem</h3>
-<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Tipo</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Onde roda</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Detalhe</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">Routines</td><td class="px-4 py-2 text-neutral-300">Nuvem (stateless)</td><td class="px-4 py-2 text-neutral-400">PC desligado · cadência mín. ~1h · precisa repo GitHub</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-sky-400">Scheduled tasks</td><td class="px-4 py-2 text-neutral-300">Local (desktop)</td><td class="px-4 py-2 text-neutral-400">Acessa arquivos locais</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/loop</td><td class="px-4 py-2 text-neutral-300">Local (sessão)</td><td class="px-4 py-2 text-neutral-400">Intervalos curtos · não sobrevive a reinício</td></tr></tbody></table></div>
-<p class="text-xs text-neutral-400 mt-2">Limites por plano: <strong>Pro</strong> ~5/dia · <strong>Max</strong> ~15/dia · <strong>Team/Enterprise</strong> ~25/dia. Cada execução na nuvem ≈ 4 vCPU / 16 GB RAM.</p>
+<div><h3 class="text-base font-semibold text-teal-400 mb-2">🟢 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">Las <strong>Routines</strong> son automatizaciones que se ejecutan <strong>en la nube</strong> — sin dejar la PC encendida. Tú defines un prompt, un repositorio de GitHub, un modelo y una frecuencia; la activación puede ser por <em>programación</em>, <em>API</em> o <em>evento de GitHub</em>. En cambio, el <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/loop</code> y las <em>scheduled tasks</em> se ejecutan localmente.</p></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Es Claude convertido en un miembro del equipo que trabaja solo: revisa PRs, actualiza dependencias, genera informes — en un horario programado, sin que tú intervengas. La trampa: el entorno en la nube es <strong>sin estado</strong> e <strong>no ve tu <code class="text-amber-400">.env</code> local</strong>; los secretos van como variables de entorno de la nube.</p></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-3">🔑 Local × Nube</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Tipo</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Dónde se ejecuta</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Detalle</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">Routines</td><td class="px-4 py-2 text-neutral-300">Nube (sin estado)</td><td class="px-4 py-2 text-neutral-400">PC apagada · frecuencia mínima ~1h · necesita un repo de GitHub</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-sky-400">Scheduled tasks</td><td class="px-4 py-2 text-neutral-300">Local (escritorio)</td><td class="px-4 py-2 text-neutral-400">Accede a archivos locales</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-amber-400">/loop</td><td class="px-4 py-2 text-neutral-300">Local (sesión)</td><td class="px-4 py-2 text-neutral-400">Intervalos cortos · no sobrevive a un reinicio</td></tr></tbody></table></div>
+<p class="text-xs text-neutral-400 mt-2">Límites por plan: <strong>Pro</strong> ~5/día · <strong>Max</strong> ~15/día · <strong>Team/Enterprise</strong> ~25/día. Cada ejecución en la nube ≈ 4 vCPU / 16 GB RAM.</p>
 </div>
-<div class="rounded-xl bg-red-500/5 border border-red-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-red-400 font-semibold">⚠️ Pegadinha:</span> rotina remota <strong>não tem cookies/sessão do navegador local</strong>. Automação que depende de login salvo falha — use API ou autenticação própria, e teste várias vezes antes de "produção".</p></div>
+<div class="rounded-xl bg-red-500/5 border border-red-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-red-400 font-semibold">⚠️ Trampa:</span> rutina remota <strong>no tiene cookies ni sesión del navegador local</strong>. La automatización que depende de un inicio de sesión guardado falla: usa una API o autenticación propia, y haz varias pruebas antes de pasar a «producción».</p></div>
 </div>
 </div>
 </div>
@@ -267,22 +267,22 @@ claude   # usa o modelo local, offline</pre></div>
 <span class="text-teal-400 text-xs font-bold w-6 flex-shrink-0">5.5</span>
 <span class="w-8 h-8 rounded-full bg-teal-500/20 text-teal-400 border border-teal-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">Monitores de Uso</h2>
-<p class="text-sm text-neutral-400 mt-0.5">tokens · agentes · terminais · dashboards (iccmonit, SMA, AgentView)</p>
+<h2 class="text-xl font-bold">Monitores de uso</h2>
+<p class="text-sm text-neutral-400 mt-0.5">tokens · agentes · terminales · dashboards (iccmonit, SMA, AgentView)</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~7 min</span>
 <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-5-5">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-teal-400 mb-2">🟢 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">Ferramentas que mostram, em tempo real, <strong>quanto você está gastando</strong> e <strong>o que seus agentes estão fazendo</strong>: consumo de tokens, custo, sessões abertas e múltiplos terminais. A comunidade construiu vários — <em>Token-Dashboard</em>, <em>iccmonit</em>, <em>SMA (Surveil My Agents)</em>, <em>Agent View</em>.</p></div>
-<div><h3 class="text-base font-semibold text-teal-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Quem roda vários agentes em paralelo (trilha 6) perde a noção do gasto e do estado. Um monitor evita susto na fatura e mostra qual terminal travou ou terminou. <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/cost</code> resolve o básico; os dashboards dão a visão geral.</p></div>
-<div><h3 class="text-base font-semibold text-teal-400 mb-3">🔑 O que cada um cobre</h3>
+<div><h3 class="text-base font-semibold text-teal-400 mb-2">🟢 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">Herramientas que muestran, en tiempo real, <strong>cuánto estás gastando</strong> e <strong>qué están haciendo tus agentes</strong>: consumo de tokens, costo, sesiones abiertas y múltiples terminales. La comunidad creó varios — <em>Token-Dashboard</em>, <em>iccmonit</em>, <em>SMA (Surveil My Agents)</em>, <em>Agent View</em>.</p></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Quien ejecuta varios agentes en paralelo (trilha 6) pierde la noción del gasto y del estado. Un monitor evita sorpresas en la factura y muestra qué terminal se bloqueó o terminó. <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/cost</code> resuelve lo básico; los dashboards dan una visión general.</p></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-3">🔑 Qué cubre cada uno</h3>
 <div class="grid sm:grid-cols-2 gap-3">
-<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-teal-400 mb-1">📊 Token-Dashboard</div><p class="text-xs text-neutral-400">Consumo de tokens e custo por sessão/dia</p></div>
-<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-teal-400 mb-1">🖥️ iccmonit</div><p class="text-xs text-neutral-400">Monitor do Claude Code rodando na máquina</p></div>
-<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-teal-400 mb-1">🛰️ SMA — Surveil My Agents</div><p class="text-xs text-neutral-400">Vigia vários agentes ao mesmo tempo</p></div>
-<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-teal-400 mb-1">🗂️ Agent View</div><p class="text-xs text-neutral-400">Gestão de múltiplos terminais/threads</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-teal-400 mb-1">📊 Token-Dashboard</div><p class="text-xs text-neutral-400">Consumo de tokens y costo por sesión/día</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-teal-400 mb-1">🖥️ iccmonit</div><p class="text-xs text-neutral-400">Monitor de Claude Code en ejecución en la máquina</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-teal-400 mb-1">🛰️ SMA — Surveil My Agents</div><p class="text-xs text-neutral-400">Supervisa varios agentes al mismo tiempo</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-teal-400 mb-1">🗂️ Agent View</div><p class="text-xs text-neutral-400">Gestión de múltiples terminales/hilos</p></div>
 </div>
 </div>
 </div>
@@ -294,18 +294,18 @@ claude   # usa o modelo local, offline</pre></div>
 <span class="text-teal-400 text-xs font-bold w-6 flex-shrink-0">5.6</span>
 <span class="w-8 h-8 rounded-full bg-teal-500/20 text-teal-400 border border-teal-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">6</span>
 <div class="flex-1 min-w-0">
-<h2 class="text-xl font-bold">Modelos e Embeddings</h2>
-<p class="text-sm text-neutral-400 mt-0.5">Sonnet e Opus novos · escolher o modelo · Gemini Embedding</p>
+<h2 class="text-xl font-bold">Modelos y embeddings</h2>
+<p class="text-sm text-neutral-400 mt-0.5">Nuevos Sonnet y Opus · elegir el modelo · Gemini Embedding</p>
 </div>
 <span class="text-xs text-neutral-500 hidden sm:block">~7 min</span>
 <svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <div class="topic-explanation px-5 pb-6" id="exp-5-6">
 <div class="border-t border-dark-600 pt-5 space-y-5">
-<div><h3 class="text-base font-semibold text-teal-400 mb-2">🟢 O que é</h3><p class="text-neutral-300 text-sm leading-relaxed">A Anthropic lança novas versões de <strong>Sonnet</strong> e <strong>Opus</strong> com frequência — o Claude Code aponta para as mais recentes. Para <strong>busca semântica</strong> (RAG, "segundo cérebro"), entram os <strong>embeddings</strong>, onde modelos como o <em>Gemini Embedding</em> são populares por serem baratos/gratuitos.</p></div>
-<div><h3 class="text-base font-semibold text-teal-400 mb-2">💡 Por que aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Saber a diferença entre <strong>modelo de chat</strong> (gera código/texto) e <strong>modelo de embedding</strong> (transforma texto em vetores pra busca) evita confusão. O primeiro você troca com <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/model</code>; o segundo alimenta seu RAG (trilha 6).</p></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-2">🟢 Qué es</h3><p class="text-neutral-300 text-sm leading-relaxed">Anthropic lanza nuevas versiones de <strong>Sonnet</strong> e <strong>Opus</strong> con frecuencia — Claude Code apunta a las más recientes. Para <strong>búsqueda semántica</strong> (RAG, "segundo cerebro"), entran los <strong>embeddings</strong>, donde modelos como <em>Gemini Embedding</em> son populares por ser baratos/gratuitos.</p></div>
+<div><h3 class="text-base font-semibold text-teal-400 mb-2">💡 Por qué aprender</h3><p class="text-neutral-300 text-sm leading-relaxed">Saber la diferencia entre <strong>modelo de chat</strong> (genera código/texto) y <strong>modelo de embeddings</strong> (transformar texto en vectores para búsquedas) evita confusiones. El primero lo cambias con <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">/model</code>; el segundo alimenta tu RAG (ruta 6).</p></div>
 <div><h3 class="text-base font-semibold text-teal-400 mb-3">🔑 Chat × Embedding</h3>
-<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Tipo</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Faz</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Exemplos</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">Chat / código</td><td class="px-4 py-2 text-neutral-300">Raciocina, edita, conversa</td><td class="px-4 py-2 text-neutral-400">Opus · Sonnet · Haiku</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-sky-400">Embedding</td><td class="px-4 py-2 text-neutral-300">Vetoriza texto p/ busca</td><td class="px-4 py-2 text-neutral-400">Gemini Embedding 2.0</td></tr></tbody></table></div>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Tipo</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Hace</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Ejemplos</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-teal-400">Chat / código</td><td class="px-4 py-2 text-neutral-300">Razona, edita, conversa</td><td class="px-4 py-2 text-neutral-400">Opus · Sonnet · Haiku</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 font-mono text-sky-400">Embedding</td><td class="px-4 py-2 text-neutral-300">Vectoriza texto para búsquedas</td><td class="px-4 py-2 text-neutral-400">Gemini Embedding 2.0</td></tr></tbody></table></div>
 <pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mt-3">/model         # ver e trocar o modelo de chat ativo
 /model sonnet  # último Sonnet (dia-a-dia)
 /model opus    # último Opus (tarefas difíceis)</pre>
@@ -316,7 +316,7 @@ claude   # usa o modelo local, offline</pre></div>
 <!-- Navigation -->
 <div class="flex items-center justify-between mt-10 pt-8 border-t border-dark-700">
 <a class="text-sm text-neutral-400 hover:text-neutral-200 transition flex items-center gap-2" href="../trilha4/">← T4 Skills</a>
-<a class="text-sm text-rose-400 hover:text-rose-300 transition flex items-center gap-2" href="../trilha6/">Próxima: T6 Agentes &amp; Cowork →</a>
+<a class="text-sm text-rose-400 hover:text-rose-300 transition flex items-center gap-2" href="../trilha6/">Siguiente: T6 Agentes y Cowork →</a>
 </div>
 </div>
 <footer class="border-t border-dark-700 py-10 px-4 mt-8">
@@ -327,7 +327,7 @@ claude   # usa o modelo local, offline</pre></div>
 <a class="text-sky-400 hover:text-sky-300 text-sm" href="https://inema.club" target="_blank">INEMA.CLUB</a>
 </div>
 <p class="text-sm text-neutral-500">Canal <a class="text-teal-400 hover:text-teal-300" href="https://t.me/c/3012468959" target="_blank">Claude Code (INEMA)</a> · 2026</p>
-<p class="text-xs text-neutral-600">Curado da comunidade · INEMA.CLUB</p>
+<p class="text-xs text-neutral-600">Seleccionado de la comunidad · INEMA.CLUB</p>
 </div>
 </footer>
 <script>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Track 2 — Building from Scratch | Claude Code Basics | INEMA.CLUB</title>
+<meta content="ccodebasico" name="inema-course"/>
+<script>
+    try {
+      var p = JSON.parse(localStorage.getItem('inema.prefs') || '{}');
+      if (p.dark === false) document.documentElement.classList.remove('dark');
+      else document.documentElement.classList.add('dark');
+    } catch(e) { document.documentElement.classList.add('dark'); }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'dark-900': '#0f172a', 'dark-800': '#1e293b', 'dark-700': '#334155', 'dark-600': '#475569', primary: '#FACC15' } } } }
+  </script>
+<style>
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) nav { background-color: rgba(255,255,255,0.95) !important; border-bottom-color: #e5e7eb !important; }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37,99,235,0.12); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .text-red-400 { color: #b91c1c; }
+    html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+    .topic-explanation { display: none; }
+    .topic-explanation.open { display: block; }
+    [id] { scroll-margin-top: 72px; }
+    @keyframes wf-pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.4s} .wf-a:nth-child(3){animation-delay:.8s} .wf-a:nth-child(4){animation-delay:1.2s} .wf-a:nth-child(5){animation-delay:1.6s}
+    }
+  </style>
+<link href="https://inematds.github.io/ccodebasico/curso/trilha2/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ccodebasico/en/curso/trilha2/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ccodebasico/es/curso/trilha2/" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha2/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../es/curso/trilha2/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3 min-w-0">
+<a class="text-primary font-black text-xl tracking-tight" href="../../">Claude Code Basics</a>
+<span class="text-dark-600 hidden sm:inline">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium hidden sm:inline" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-emerald-400 transition" href="../trilha1/">T1 Basics</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-blue-500/20 text-blue-400 border border-blue-500/30 font-medium" href="../trilha2/">T2 From Scratch</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-purple-400 transition hidden sm:inline" href="../trilha3/">T3 Context</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-amber-400 transition hidden md:inline" href="../trilha4/">T4 Skills</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-teal-400 transition hidden md:inline" href="../trilha5/">T5 MCP</a>
+<a class="text-xs px-2.5 py-1.5 rounded-lg bg-dark-700 text-neutral-300 hover:text-rose-400 transition hidden lg:inline" href="../trilha6/">T6 Agents</a>
+<button aria-label="Toggle theme" class="w-8 h-8 rounded-lg bg-dark-700 hover:bg-dark-600 flex items-center justify-center transition text-neutral-400" onclick="toggleTheme()">
+<svg class="w-4 h-4 hidden" fill="currentColor" id="icon-sun" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+<svg class="w-4 h-4" fill="currentColor" id="icon-moon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+</button>
+</div>
+</div>
+</nav>
+<!-- TRAIL HEADER -->
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 items-center">
+<div>
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4 border border-blue-500/30">TRACK 2</span>
+<h1 class="text-3xl sm:text-4xl font-black mb-3">🔵 Building from Scratch</h1>
+<p class="text-neutral-300 text-lg mb-6 max-w-2xl">The channel’s day-by-day series, from your first app to a planner for workflows and real projects. Learn by doing: a lean plan, phases with checklists, and guided building.</p>
+<div class="flex flex-wrap gap-4 text-sm">
+<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-blue-400"></span>7 modules</span>
+<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-blue-400"></span>~50 minutes</span>
+<span class="flex items-center gap-1.5 text-neutral-400"><span class="w-2 h-2 rounded-full bg-blue-400"></span>Hands-on</span>
+</div>
+</div>
+<!-- HERO SVG: escada Dia 1 → Dia N -->
+<div class="rounded-2xl border border-blue-500/30 bg-dark-900/40 p-4 overflow-hidden">
+<svg aria-label="Progress ladder: Day 1 to Day 13, from your first app to real projects" class="w-full h-auto" font-family="Inter,sans-serif" role="img" viewbox="0 0 640 220" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="t2-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#60a5fa"></stop><stop offset="1" stop-color="#3b82f6"></stop></lineargradient>
+<filter height="180%" id="t2-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.6"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="26" id="t2-grid" patternunits="userSpaceOnUse" width="26"><circle cx="1.2" cy="1.2" fill="#38bdf8" opacity="0.08" r="1.2"></circle></pattern>
+</defs>
+<rect fill="url(#t2-grid)" height="220" width="640"></rect>
+<!-- degraus -->
+<g class="wf-a"><rect fill="#1e293b" height="30" rx="6" stroke="#60a5fa" stroke-width="1.5" width="92" x="40" y="158"></rect><text fill="#60a5fa" font-size="9" font-weight="600" text-anchor="middle" x="86" y="177">Day 1–2</text></g>
+<g class="wf-a"><rect fill="#1e293b" height="30" rx="6" stroke="#60a5fa" stroke-width="1.5" width="92" x="150" y="126"></rect><text fill="#60a5fa" font-size="9" font-weight="600" text-anchor="middle" x="196" y="145">Day 3 · Flow</text></g>
+<g class="wf-a"><rect fill="#1e293b" height="30" rx="6" stroke="#60a5fa" stroke-width="1.5" width="92" x="260" y="94"></rect><text fill="#60a5fa" font-size="9" font-weight="600" text-anchor="middle" x="306" y="113">Day 4–5</text></g>
+<g class="wf-a"><rect fill="#1e293b" height="30" rx="6" stroke="#60a5fa" stroke-width="1.5" width="92" x="370" y="62"></rect><text fill="#38bdf8" font-size="9" font-weight="600" text-anchor="middle" x="416" y="81">Day 6–11</text></g>
+<!-- topo: projeto real -->
+<rect fill="url(#t2-grad)" filter="url(#t2-glow)" height="46" rx="10" width="128" x="478" y="28"></rect>
+<text fill="#0b1220" font-size="11" font-weight="700" text-anchor="middle" x="542" y="48">🚀 Real Project</text>
+<text fill="#1e3a8a" font-size="8" text-anchor="middle" x="542" y="63">complete app live</text>
+<!-- linha conectora -->
+<path d="M86,158 L196,126 L306,94 L416,62 L478,51" fill="none" opacity="0.6" stroke="#3b82f6" stroke-dasharray="4 3" stroke-width="1.6"></path>
+</svg>
+</div>
+</div>
+</header>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<!-- MAPA DA TRILHA (OBRIGATÓRIO) -->
+<section class="mb-12" id="mapa-da-trilha">
+<h2 class="text-2xl font-bold mb-6">Learning path map</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-1">
+<div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.1</span><span class="text-xs text-neutral-500">~8 min</span></div>
+<div class="font-semibold text-sm mb-1">🏗️ Starting from Scratch</div>
+<p class="text-xs text-neutral-400">Day 1–2 · lean plan, Lovable</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-2">
+<div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.2</span><span class="text-xs text-neutral-500">~8 min</span></div>
+<div class="font-semibold text-sm mb-1">🐝 Claude Flow — Swarms</div>
+<p class="text-xs text-neutral-400">Day 3 · agent swarms</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-3">
+<div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.3</span><span class="text-xs text-neutral-500">~7 min</span></div>
+<div class="font-semibold text-sm mb-1">🔧 Workflow Planner</div>
+<p class="text-xs text-neutral-400">Day 4–5 · building the tool</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-4">
+<div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.4</span><span class="text-xs text-neutral-500">~8 min</span></div>
+<div class="font-semibold text-sm mb-1">🔌 MCPs in the Project</div>
+<p class="text-xs text-neutral-400">Day 6–9 · Supabase, 21st.dev</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-5">
+<div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.5</span><span class="text-xs text-neutral-500">~6 min</span></div>
+<div class="font-semibold text-sm mb-1">📊 Dashboard and GPTs</div>
+<p class="text-xs text-neutral-400">Day 10–11 · interfaces and bots</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-6">
+<div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.6</span><span class="text-xs text-neutral-500">~6 min</span></div>
+<div class="font-semibold text-sm mb-1">⚡ Replacing Superapps</div>
+<p class="text-xs text-neutral-400">Day 13 · custom-built tools</p>
+</a>
+<a class="bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/40 p-4 transition block" href="#modulo-2-7">
+<div class="flex items-center justify-between mb-2"><span class="text-blue-400 text-sm font-bold">2.7</span><span class="text-xs text-neutral-500">~7 min</span></div>
+<div class="font-semibold text-sm mb-1">🐎 Example Projects</div>
+<p class="text-xs text-neutral-400">Horse Auction · PETS system</p>
+</a>
+</div>
+</section>
+<h2 class="text-2xl font-bold mb-6">Detailed content</h2>
+<!-- Módulo 2.1 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-2-1">
+<button aria-controls="exp-2-1" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.1</span>
+<span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Starting from Scratch (Day 1–2)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">lean plan · phases with checklists · Lovable → Claude Code bridge</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-2-1">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">The starting point for the series: build a real app from scratch with Claude Code. The golden rule for Day 1 — <strong>describe WHAT, not HOW</strong>. A plan <code class="bg-dark-700 px-1.5 py-0.5 rounded text-amber-400 text-xs font-mono">.md</code> lean is better than locking in libraries too early.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">Most people get stuck because they give too much technical detail ("use Framer Motion X") instead of stating a requirement ("cards with a smooth hover effect"). Defining visual/UX requirements and letting Claude choose the libraries reduces hallucinations and rework. People coming from Lovable can migrate their project and gain real control over the code.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Phase Workflow (with Checklist)</h3>
+<div class="space-y-2">
+<div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-xs text-blue-400 font-bold flex-shrink-0">1</span><p class="text-sm text-neutral-300">Plan <code class="text-amber-400 font-mono text-xs">.md</code> lean: what, not how — enable the <strong>plan mode</strong> (Shift+Tab) before editing</p></div>
+<div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-xs text-blue-400 font-bold flex-shrink-0">2</span><p class="text-sm text-neutral-300">Build in short phases; each phase ends with: <strong>build ok · screenshot · commit · 5-line summary</strong></p></div>
+<div class="flex gap-3"><span class="w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-xs text-blue-400 font-bold flex-shrink-0">3</span><p class="text-sm text-neutral-300">Did it break “out of nowhere”? Run a <code class="text-amber-400 font-mono text-xs">git diff</code> from the last known good state and isolate by bisection</p></div>
+</div>
+<pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mt-3"># script de resgate no package.json
+"rescue": "rimraf node_modules .next dist &amp;&amp; npm i"</pre>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 2.2 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-2-2">
+<button aria-controls="exp-2-2" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.2</span>
+<span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Claude Flow — Agent Swarms (Day 3)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">swarm vs hive mind · npx claude-flow@alpha · concurrent agents</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-2-2">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">O <strong>Claude Flow</strong> is a framework for running <em>agent swarms</em> (agent swarms) that work in parallel. Two architectures: <strong>Swarm</strong> (independent agents in parallel) and <strong>Hive Mind</strong> (shared memory between them).</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">Splitting a build among competing agents (UI, API, storage, tests) speeds things up a lot—but it only works with <strong>plan and validation checklist</strong>. The difference between a “vibe coder” (iterates without a plan) and an “agentic engineer” (process + architecture) is what produces a working system, not a simulation.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Commands and Hacks</h3>
+<pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mb-3">npx claude-flow@alpha init --force      # inicializa o Flow
+# rode o swarm com UI interativa:
+claude-flow swarm "..." --cloud
+# depurar MCP:
+claude mcp list --debug
+claude mcp remove FlowNexus
+claude mcp add FlowNexus "npx -y flow-nexus mcp"</pre>
+<div class="grid sm:grid-cols-2 gap-3">
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">⚡ Productivity</div><p class="text-xs text-neutral-400">Terminal aliases (e.g., <code class="text-amber-400 font-mono">dsp</code>) so you don't have to type long commands</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">🏛️ Architecture</div><p class="text-xs text-neutral-400">Supabase Realtime instead of Redis; Vite.js for rapid prototyping</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">🍎 macOS</div><p class="text-xs text-neutral-400">Add <code class="text-amber-400 font-mono">-y</code> to the <code class="text-amber-400 font-mono">npx</code> to resolve path/permission issues</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">✅ Validation</div><p class="text-xs text-neutral-400">Ask it to document before implementing; checklist before the final build</p></div>
+</div>
+</div>
+<div class="rounded-xl bg-amber-500/5 border border-amber-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-amber-400 font-semibold">💡 Tip:</span> Using Supabase locally in dev saves costs, and policies <strong>RLS</strong> + signed/expiring links prevent data leaks through public links.</p></div>
+</div>
+</div>
+</div>
+<!-- Módulo 2.3 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-2-3">
+<button aria-controls="exp-2-3" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.3</span>
+<span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Workflow Planner (Day 4–5)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">building a real tool · iterating on top of the foundation</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~7 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-2-3">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">From Days 4 and 5: build a <strong>workflow planner</strong> — a tool with a UI, persistence, and logic—and then iterate with “major updates” on top of the stable foundation.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">It’s the leap from a “demo app” to a tool you’d actually use. It shows how <strong>improve an existing project</strong> without breaking what already works—commits by phase, a consistently green baseline, and major updates made with a plan.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Evolution Pattern</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Step</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">What to do</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Base</td><td class="px-4 py-2 text-neutral-300">CRUD + minimal UI working, committed</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Plan</td><td class="px-4 py-2 text-neutral-300">Plan mode (Shift+Tab) to sketch out the "big update"</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Iterate</td><td class="px-4 py-2 text-neutral-300">One feature at a time, with a green build at every step</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Rescue</td><td class="px-4 py-2 text-neutral-300">Diff/bisection when something regresses</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 2.4 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-2-4">
+<button aria-controls="exp-2-4" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.4</span>
+<span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">MCPs in the Project (Days 6–9)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">Supabase MCP · 21st.dev · connect external tools</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~8 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-2-4">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">Starting on Day 6, the project gets <strong>MCP servers</strong> — the protocol that gives Claude external tools. <strong>Supabase MCP</strong> (database/auth/storage) and <strong>21st.dev MCP</strong> ("magic" UI components) appear in the series.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">With MCP, Claude queries the real database schema, creates tables, and generates UI from component libraries — without you leaving the terminal. That's what turns a prototype into a connected app. (Track 5 covers MCP in more depth.)</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Adding an MCP</h3>
+<pre class="bg-dark-900 rounded-lg p-3 text-xs text-amber-300 overflow-x-auto font-mono mb-3"># listar / adicionar / remover MCP servers
+claude mcp list
+claude mcp add supabase "npx -y @supabase/mcp-server"
+claude mcp add magic "npx -y @21st-dev/magic"
+# dentro da sessão:
+/mcp                       # ver status dos servers conectados</pre>
+<div class="rounded-xl bg-blue-500/5 border border-blue-500/20 p-4"><p class="text-sm text-neutral-300"><span class="text-blue-400 font-semibold">Default:</span> connect the MCP, ask Claude to “read the current schema” before generating code, and configure <strong>RLS</strong> in Supabase before any public link.</p></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 2.5 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-2-5">
+<button aria-controls="exp-2-5" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.5</span>
+<span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Dashboard and GPTs (Day 10–11)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">data interfaces · building custom GPTs</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~6 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-2-5">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">Day 10 builds a <strong>dashboard</strong> (data visualization with charts and metrics); Day 11 shows how Claude Code helps you build <strong>GPTs</strong> / custom assistants based on your content.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">Dashboard is the use case that comes up most often in real products—and a great UI + data exercise. GPTs, meanwhile, show Claude Code as a tool for <em>authorship</em>: it structures instructions, the knowledge base, and the bot workflow.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Dashboard Recipe</h3>
+<div class="grid sm:grid-cols-3 gap-3">
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">1 · Data</div><p class="text-xs text-neutral-400">Real source (API/Supabase), not a mock</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">2 · Layout</div><p class="text-xs text-neutral-400">Metric cards + charts; describe the UX</p></div>
+<div class="bg-dark-700/40 border border-dark-600 rounded-xl p-3"><div class="text-xs font-bold text-blue-400 mb-1">3 · Refinement</div><p class="text-xs text-neutral-400">Screenshot → adjustment → commit by phase</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 2.6 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-2-6">
+<button aria-controls="exp-2-6" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.6</span>
+<span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">6</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Replacing Superapps (Day 13)</h2>
+<p class="text-sm text-neutral-400 mt-0.5">custom-built tools instead of expensive SaaS</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~6 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-2-6">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">Day 13 is the turning point: instead of paying for several "superapps"/SaaS tools, you <strong>builds the custom tool</strong> with Claude Code — exactly the features you use, nothing else.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">This is the course’s economic thesis: much of what you subscribe to can become a small app of your own. You control the data, pay only for the infrastructure, and make changes whenever you want. Claude Code cuts the cost of "building your own".</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 When It’s Worth Replacing</h3>
+<div class="grid sm:grid-cols-2 gap-3">
+<div class="bg-dark-700/40 border border-emerald-500/30 rounded-xl p-3"><div class="text-xs font-bold text-emerald-400 mb-1">✓ It counts</div><p class="text-xs text-neutral-400">Simple, repetitive use, your own data, integration with your stack</p></div>
+<div class="bg-dark-700/40 border border-red-500/30 rounded-xl p-3"><div class="text-xs font-bold text-red-400 mb-1">✗ It doesn’t count</div><p class="text-xs text-neutral-400">Heavy compliance requirements, massive scale, features that change every week</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 2.7 -->
+<div class="mb-6 rounded-2xl border border-dark-600 bg-dark-800 overflow-hidden" id="modulo-2-7">
+<button aria-controls="exp-2-7" aria-expanded="false" class="w-full flex justify-start items-center gap-4 p-5 hover:bg-dark-700 transition text-left" onclick="toggleTopic(this)">
+<span class="text-blue-400 text-xs font-bold w-6 flex-shrink-0">2.7</span>
+<span class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold flex-shrink-0">7</span>
+<div class="flex-1 min-w-0">
+<h2 class="text-xl font-bold">Example Projects</h2>
+<p class="text-sm text-neutral-400 mt-0.5">horse auction · PETS system · complete app from scratch</p>
+</div>
+<span class="text-xs text-neutral-500 hidden sm:block">~7 min</span>
+<svg class="w-5 h-5 text-neutral-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="topic-explanation px-5 pb-6" id="exp-2-7">
+<div class="border-t border-dark-600 pt-5 space-y-5">
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">🔵 What It Is</h3><p class="text-neutral-300 text-sm leading-relaxed">Two complete projects guided by the community: a <strong>horse auction</strong> and one <strong>PETS system</strong> (sign-up/management). From the database schema to the UI, showing the end-to-end flow.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-2">💡 Why learn</h3><p class="text-neutral-300 text-sm leading-relaxed">See an entire app come to life — data modeling, screens, business rules — bringing together everything from the previous tracks. These make good “anchor projects” for you to rebuild with your own theme.</p></div>
+<div><h3 class="text-base font-semibold text-blue-400 mb-3">🔑 Anatomy of the Two Projects</h3>
+<div class="overflow-x-auto rounded-xl border border-dark-600"><table class="w-full text-sm"><thead class="bg-dark-700"><tr><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">Layer</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">🐎 Auction</th><th class="text-left px-4 py-2 text-neutral-300 font-semibold text-xs">🐾 PETS</th></tr></thead><tbody class="divide-y divide-dark-600 text-xs"><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Data</td><td class="px-4 py-2 text-neutral-300">batches, bids, users</td><td class="px-4 py-2 text-neutral-300">tutors, pets, customer service</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">Rule</td><td class="px-4 py-2 text-neutral-300">minimum bid, auction time</td><td class="px-4 py-2 text-neutral-300">scheduling, history, safeguards</td></tr><tr class="hover:bg-dark-700/50"><td class="px-4 py-2 text-blue-400 font-mono">UI</td><td class="px-4 py-2 text-neutral-300">listing + live bidding screen</td><td class="px-4 py-2 text-neutral-300">pet profile + dashboard</td></tr></tbody></table></div>
+</div>
+<div class="rounded-xl bg-amber-500/5 border border-amber-500/30 p-4"><p class="text-sm text-neutral-300"><span class="text-amber-400 font-semibold">💡 Next step:</span> take the structure from these examples and swap in your domain. Same skeleton, different content—that’s the fastest way to learn.</p></div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="flex items-center justify-between mt-10 pt-8 border-t border-dark-700">
+<a class="text-sm text-neutral-400 hover:text-neutral-200 transition flex items-center gap-2" href="../../">← Home</a>
+<a class="text-sm text-purple-400 hover:text-purple-300 transition flex items-center gap-2" href="../trilha3/">Next: T3 Context &amp; Commands →</a>
+</div>
+</div>
+<footer class="border-t border-dark-700 py-10 px-4 mt-8">
+<div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="text-primary font-black text-lg">Claude Code Basics</span>
+<span class="text-dark-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<p class="text-sm text-neutral-500">Channel <a class="text-blue-400 hover:text-blue-300" href="https://t.me/c/3012468959" target="_blank">Claude Code (INEMA)</a> · 2026</p>
+<p class="text-xs text-neutral-600">Community-curated · INEMA.CLUB</p>
+</div>
+</footer>
+<script>
+  function toggleTopic(btn) {
+    const id = btn.getAttribute('aria-controls');
+    const panel = document.getElementById(id);
+    const svg = btn.querySelector('svg:last-child');
+    const isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    if (svg) svg.style.transform = isOpen ? '' : 'rotate(180deg)';
+  }
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.classList.toggle('dark');
+    document.getElementById('icon-sun').classList.toggle('hidden', isDark);
+    document.getElementById('icon-moon').classList.toggle('hidden', !isDark);
+    try { localStorage.setItem('inema.prefs', JSON.stringify({dark: isDark})); } catch(e){}
+  }
+  (function() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.getElementById('icon-sun').classList.toggle('hidden', isDark);
+    document.getElementById('icon-moon').classList.toggle('hidden', !isDark);
+  })();
+</script>
+</body>
+</html>
